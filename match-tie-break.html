@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match-Tiebreak Turnier - TennisSG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>TennisSG</h1>
+        <div id="nav-placeholder"></div>
+    </header>
+
+    <main>
+        <section class="tournament-detail">
+            <h2>🎾 9. Match Tiebreak Turnier + 1-Punkt-Turnier</h2>
+            
+            <div class="highlight-box">
+                <p><strong>Wann:</strong> 20.05.2026 um 10:00 Uhr</p>
+                <p><strong>Ablauf:</strong> Pünktlich um 10 Uhr starten wir mit dem nervenaufreibenden <strong>1-Punkt-Turnier</strong>. Im direkten Anschluss folgt das klassische Match Tiebreak Turnier.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>Modus & Regeln</h3>
+                    <ul>
+                        <li><strong>Disziplin:</strong> Einzel</li>
+                        <li><strong>Zählweise:</strong> Es werden ausschließlich Match-Tiebreaks gespielt.</li>
+                        <li><strong>System:</strong> Jeder gegen Jeden in seiner Gruppe.</li>
+                        <li><strong>Einteilung:</strong> Erfolgt nach Jahrgängen.</li>
+                    </ul>
+                </div>
+
+                <div class="info-box trophy-box">
+                    <h3>🏆 Der Wanderpokal</h3>
+                    <p>Für das <strong>1-Punkt-Turnier</strong> gibt es einen prestigeträchtigen Wanderpokal!</p>
+                    <p><em>Besondere Regel:</em> Wer den Pokal insgesamt <strong>3 Mal gewinnt</strong>, darf ihn dauerhaft behalten!</p>
+                </div>
+            </div>
+
+            <!-- Kontakt- und Zahlungsbox -->
+            <div class="cta-section">
+                <h3>Anmeldung & Startgebühr</h3>
+                <p>Melde dich jetzt bei Sönke an und sichere dir deinen Platz im Feld:</p>
+                
+                <div class="cta-buttons">
+                    <a href="https://wa.me" class="button whatsapp-btn" target="_blank">💬 Via WhatsApp</a>
+                    <a href="mailto:tennissg@web.de?subject=Anmeldung Match-Tiebreak Turnier" class="button">📧 Per E-Mail</a>
+                    <!-- Dein korrekter PayPal Link -->
+                    <a href="https://www.paypal.me" target="_blank" class="button paypal-btn">💳 Startgebühr via PayPal</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Navigation laden
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('nav-placeholder').innerHTML = data; });
+
+        // Footer laden
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+    </script>
+</body>
+</html>

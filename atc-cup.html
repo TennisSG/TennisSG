@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9. ATC-Team-Cup - TennisSG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>TennisSG</h1>
+        <div id="nav-placeholder"></div>
+    </header>
+
+    <main>
+        <section class="tournament-detail">
+            <h2>🏆 9. ATC-Team-Cup</h2>
+            
+            <div class="highlight-box">
+                <p><strong>Wann:</strong> Samstag, 03./04. Oktober 2026, Start 10:00 Uhr</p>
+                <p><strong>Wer:</strong> Kinder und Jugend im ATC</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>Modus</h3>
+                    <ul>
+                        <li>Es werden 2er Teams ausgelost.</li>
+                        <li>Es werden Einzel und Doppel gespielt.</li>
+                    </ul>
+                    <h3>Verpflegung</h3>
+                    <p>🍕 Pizza und Getränke werden gestellt!</p>
+                </div>
+
+                <div class="info-box trophy-box">
+                    <h3>🎁 Preise</h3>
+                    <ul>
+                        <p>Kleine Preise für alle Teilnehmer.</p>
+                        <p><strong>Hauptpreis:</strong> Je eine Tennistasche für die Sieger.</p>
+                        <p><strong>Wanderpokal:</strong> Der massive 50cm Wanderpokal wartet auf euch!</p>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="donation-info">
+                <h3>Spende</h3>
+                <p>Ich freue mich über freiwillige Spenden für die Organisation und Verpflegung. 😊</p>
+                <a href="https://www.paypal.me/TennisSG" target="_blank" class="button paypal-btn">💳 Spende via PayPal.me</a>
+            </div>
+
+            <div class="cta-section">
+                <h3>Anmeldung</h3>
+                <p>Bitte bis zum <strong>01.10.</strong> per Nachricht anmelden bei:</p>
+                
+                <div class="cta-buttons">
+                    <!-- WhatsApp Button -->
+                    <a href="https://wa.me" class="button whatsapp-btn" target="_blank">
+                        💬 Via WhatsApp
+                    </a>
+                    
+                    <!-- E-Mail Button -->
+                    <a href="mailto:tennissg@web.de?subject=Anmeldung SommerCamp" class="button">
+                        📧 Per E-Mail
+                    </a>
+                    
+                    <!-- Telefon Button (nur für Handys sichtbar/nützlich) -->
+                    <a href="tel:+4915775211552" class="button call-btn">
+                        📞 Anrufen
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('nav.html').then(r => r.text()).then(d => document.getElementById('nav-placeholder').innerHTML = d);
+        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
+    </script>
+</body>
+</html>

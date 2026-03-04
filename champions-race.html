@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champions-Race - TennisSG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>TennisSG</h1>
+        <div id="nav-placeholder"></div>
+    </header>
+
+    <main>
+        <section class="tournament-detail">
+            <h2>🏆 Champions-Race (Matchpraxis)</h2>
+            
+            <div class="highlight-box">
+                <p><strong>Für wen:</strong> In erster Linie geht es darum, <strong>Matchpraxis (Spielerfahrung)</strong> zu sammeln! Das ist für alle sehr wichtig! Denn das beste Training nützt nur dann etwas, wenn man das erlernte Wissen auch anwendet. 😊</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>Der Modus</h3>
+                    <ul>
+                        <li><strong>Disziplin:</strong> Einzel</li>
+                        <li><strong>Sätze:</strong> 2 Gewinnsätze bis 6 (3. Satz als Match-Tiebreak).</li>
+                        <li><strong>System:</strong> Jeder gegen jeden in seinem Race.</li>
+                        <li><strong>Einteilung:</strong> Nach Spielstärke und Jahrgang.</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>Wann & Wo</h3>
+                    <p><strong>Zeitraum:</strong> Verteilt über die gesamte Sommersaison.</p>
+                    <p><strong>Planung:</strong> Die Spieltermine werden flexibel in den jeweiligen WhatsApp-Gruppen abgestimmt.</p>
+                    <p><strong>Meldeschluss:</strong> 10.04.2026</p>
+                </div>
+            </div>
+
+            <div class="award-ceremony-box">
+                <h3>🏆 Feierliche Siegerehrung</h3>
+                <p>Das große Finale: Die Pokalübergabe für alle Champions findet am Tag der <strong>Clubmeisterschaften (12./13.09.2026)</strong> statt!</p>
+            </div>
+
+            <div class="donation-info">
+                <h3>Spende</h3> <!-- Wort von "Kosten & Spenden" in "Spende" geändert -->
+                <p>Ich freue mich über freiwillige <strong>Spenden</strong> der Eltern zur Förderung der Matchpraxis und für die Preise der Teilnehmer. 😊</p>
+                <!-- Dein funktionierender PayPal-Link -->
+                <a href="https://www.paypal.me/TennisSG" target="_blank" class="button paypal-btn">
+                    💳 Spende via PayPal.me
+                </a>
+            </div>
+
+
+            <!-- Deine neue interaktive Kontaktbox -->
+            <div class="cta-section">
+                <h3>Anmeldung & Kontakt</h3>
+                <p>Melde dich direkt bei Sönke an (für jedes Race wird eine WhatsApp-Gruppe erstellt):</p>
+                
+                <div class="cta-buttons">
+                    <a href="https://wa.me" class="button whatsapp-btn" target="_blank">💬 Via WhatsApp</a>
+                    <a href="mailto:tennissg@web.de?subject=Anmeldung Champions-Race" class="button">📧 Per E-Mail</a>
+                    <a href="tel:+4915775211552" class="button call-btn">📞 Anrufen</a>
+                </div>
+            </div>
+            
+
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Navigation laden
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('nav-placeholder').innerHTML = data; });
+
+        // Footer laden
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+    </script>
+</body>
+</html>
