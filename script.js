@@ -51,5 +51,5 @@ function sendWhatsApp() {
                     `🤝 Zeuge: ${zeuge}`;
 
     // WhatsApp Link öffnen (deine Nummer)
-    window.open(`https://wa.me/491775211552 ?text=${message}`, '_blank');
+    window.open(`https://wa.me/4915775211552 ?text=${message}`, '_blank');
 }
