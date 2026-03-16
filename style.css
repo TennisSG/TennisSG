@@ -193,3 +193,9 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 .strategy-box {background-color: #f0f7ff;padding: 20px;border-radius: 10px; border-left: 5px solid #3498db;margin: 30px 0;}
 .price-hint {background: #fff5f5;padding: 10px;border: 1px solid #feb2b2;border-radius: 5px;font-size: 0.9rem;}
 .check-container {background: #f9f9f9;padding: 20px;border: 1px solid #ddd;border-radius: 10px;}
+
+/* training.html - Anmeldung Whatsapp */
+.day-row {display: flex;align-items: center;gap: 10px;margin-bottom: 10px;border-bottom: 1px solid #eee; padding-bottom: 5px;}
+.day-label {width: 85px;font-weight: bold;}
+.day-row select {flex: 1;padding: 5px;font-size: 0.9rem;}
+@media (max-width: 600px) {.day-row { flex-wrap: wrap; }.day-label { width: 100%; margin-bottom: 5px; }}
