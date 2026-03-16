@@ -29,17 +29,22 @@ body { padding-top: 100px; } /* Platz für den fixen Header */
 
 /* --- 3. MOBILE NAVIGATION (Handy unter 768px) --- */
 @media screen and (max-width: 768px) {
-    .menu-icon {display: flex; flex-direction: column; gap: 4px; cursor: pointer; margin-top: 5px;}
-    .menu-icon span { width: 25px; height: 3px; background: white; border-radius: 2px; }
-
-    #nav-list {display: none; /* Erstmal verstecken */flex-direction: column; position: absolute;top: 90px; left: 0; width: 100%; background: #2c3e50;}
-    #nav-list.active { display: flex !important; } /* JavaScript schaltet das hier an */
-
-    #nav-list li { width: 100%; border-bottom: 1px solid #3e5871; padding: 10px 0; }
-    .dropdown-content { position: static; display: block; background: #3e5871; box-shadow: none; }
+    /* 1. Verhindert das seitliche Wackeln der Seite */
+    html, body {overflow-x: hidden;width: 100%;margin: 0; padding: 0;}
+    /* 2. Burger-Icon Position */
+    .menu-icon {display: flex;flex-direction: column;gap: 4px;cursor: pointer;padding: 10px;}
+    /* 3. Das Hauptmenü (nav-list) */
+    #nav-list {display: none; /* Erstmal komplett zu */flex-direction: column;position: absolute;top: 90px; left: 0; width: 100%;background: #2c3e50;max-height: 80vh; /* Verhindert, dass das Menü zu lang wird */overflow-y: auto; /* Scrollbar, falls viele Links */}
+    #nav-list.active { display: flex; } /* JavaScript öffnet das Menü */
+    /* 4. Dropdowns auf dem Handy STEUERN */
+    /* Standardmäßig sind die Unterpunkte jetzt VERSTECKT */
+    .dropdown-content {display: none; position: static; width: 100%; background: #3e5871;box-shadow: none;}
+    /* Nur wenn man auf das Dropdown TIPPPT, geht es auf */
+    .dropdown:focus-within .dropdown-content, 
+    .dropdown:active .dropdown-content {display: block;}
+    /* 5. Tabellen-Fix (damit nichts rechts rausragt) */
+    .table-container, table {width: 100% !important;display: block;overflow-x: auto; /* Erlaubt Wischen NUR innerhalb der Tabelle */}
 }
-
-
 
 
 body { font-family: Arial, sans-serif; margin: 0; line-height: 1.6;padding-top: 100px;/* Dieser Wert muss evtl. feinjustiert werden */ }
