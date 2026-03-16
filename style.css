@@ -193,23 +193,100 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 .day-row select {flex: 1;padding: 5px;font-size: 0.9rem;}
 
 /* --- 3. MOBILE NAVIGATION (Handy unter 768px) --- */
-@media screen and (max-width: 768px) {
-    /* Header-Layout: Logo links, Icon rechts */
-    header {display: flex;flex-direction: row !important; /* Nebeneinander statt untereinander */justify-content: space-between;align-items: center;padding: 0 20px;height: 70px;}
-    header h1 {margin: 0;font-size: 1.2rem;}
-    /* Burger-Icon Styling */
-    .menu-icon {display: flex !important;margin-top: 0; /* Zentrierung im Header */}
-    /* Das Hauptmenü (nav-list) */
-    #nav-list {display: none;position: fixed;top: 70px; left: 0; width: 100%;background: #2c3e50;flex-direction: column;padding: 0;}
-    #nav-list.active { display: flex !important; }
-    /* Dropdowns auf dem Handy STEUERN */
-    .dropdown-content {display: none; /* Erstmal verstecken */position: static;background: #3e5871;}
-    /* Nur zeigen, wenn der übergeordnete Punkt aktiv ist */
-    .dropdown:active .dropdown-content,
-    .dropdown:focus .dropdown-content,
-    .dropdown:focus-within .dropdown-content {display: block;}
-    /* Abstand für den Inhalt unter dem Header */
-    body { padding-top: 80px; }
+/* Globale Rettung gegen das Wackeln der Seite */
+* {
+    box-sizing: border-box;
 }
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Verhindert das seitliche Schieben */
+    margin: 0;
+    padding: 0;
+}
+/* handy navigation*/
+@media screen and (max-width: 768px) {
+    /* Header: Logo links, Burger rechts, fest am Rand */
+    header {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0 15px !important;
+        height: 70px !important;
+        width: 100% !important;
+        left: 0 !important;
+    }
+
+    header h1 {
+        font-size: 1.1rem !important;
+        margin: 0 !important;
+        white-space: nowrap; /* Name bleibt in einer Zeile */
+    }
+
+    /* Burger-Icon: Erzwungene Sichtbarkeit */
+    .menu-icon {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        z-index: 10001;
+    }
+
+    .menu-icon span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: white !important;
+        border-radius: 2px;
+    }
+
+    /* Menü-Liste: Schiebt sich unter den Header */
+    #nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #2c3e50;
+        padding: 0;
+        margin: 0;
+        border-top: 1px solid #3e5871;
+    }
+
+    #nav-list.active {
+        display: flex !important;
+    }
+
+    /* Dropdowns auf Handy: Standardmäßig zu, öffnen bei Tippen */
+    .dropdown-content {
+        display: none;
+        background: #3e5871;
+        position: static;
+        width: 100%;
+    }
+
+    /* Öffnet das Untermenü beim Antippen des Hauptpunkts */
+    .dropdown:active .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
+        display: block;
+    }
+
+    #nav-list li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #3e5871;
+        padding: 15px 0;
+    }
+
+    body {
+        padding-top: 80px !important;
+    }
+}
+
 
 
