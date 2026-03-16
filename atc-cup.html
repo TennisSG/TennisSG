@@ -78,5 +78,12 @@
         fetch('nav.html').then(r => r.text()).then(d => document.getElementById('nav-placeholder').innerHTML = d);
         fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
     </script>
+    <script>
+    function toggleMenu() {
+        var element = document.getElementById("nav-list");
+        element.classList.toggle("active");
+    }
+    </script>
+
 </body>
 </html>

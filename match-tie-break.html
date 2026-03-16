@@ -67,5 +67,12 @@
             .then(response => response.text())
             .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
     </script>
+    <script>
+    function toggleMenu() {
+        var element = document.getElementById("nav-list");
+        element.classList.toggle("active");
+    }
+    </script>
+
 </body>
 </html>
