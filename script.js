@@ -76,10 +76,6 @@ function sendTrainingWhatsApp() {
 
 // Stelle sicher, dass die toggleMenu-Funktion in deiner script.js steht (die auf jeder Seite geladen wird).
 function toggleMenu() {
-    var x = document.getElementById("nav-list");
-    if (x.className === "") {
-        x.className = "active";
-    } else {
-        x.className = "";
-    }
+    var element = document.getElementById("nav-list");
+    element.classList.toggle("active");
 }
