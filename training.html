@@ -147,10 +147,50 @@
                 </div>
 
                 <!-- Zeiten & Wünsche -->
-                <div class="form-group">
-                    <input type="text" id="tage" placeholder="Mögliche Wochentage (z.B. Mo, Mi, Fr)" required>
-                    <input type="text" id="zeiten" placeholder="Mögliche Uhrzeiten (z.B. ab 15:00)" required>
+                <div class="availability-container" style="margin-top: 20px; text-align: left;">
+                    <h4>📅 Verfügbarkeit (Bitte alle möglichen Zeiten wählen)</h4>
+                    <p style="font-size: 0.85rem; color: #666;">Wähle für jeden Tag aus, ab wann und bis wann das Kind Zeit hat:</p>
+                    
+                    <div class="day-row-grid">
+                        <!-- Montag -->
+                        <div class="day-row">
+                            <span class="day-label">Montag:</span>
+                            <select id="mo_von"><option value="Keine Zeit">Von...</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option></select>
+                            <select id="mo_bis"><option value="">Bis...</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option></select>
+                        </div>
+                        <!-- Dienstag -->
+                        <div class="day-row">
+                            <span class="day-label">Dienstag:</span>
+                            <select id="di_von"><option value="Keine Zeit">Von...</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option></select>
+                            <select id="di_bis"><option value="">Bis...</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option></select>
+                        </div>
+                        <!-- Mittwoch -->
+                        <div class="day-row">
+                            <span class="day-label">Mittwoch:</span>
+                            <select id="mi_von"><option value="Keine Zeit">Von...</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option></select>
+                            <select id="mi_bis"><option value="">Bis...</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option></select>
+                        </div>
+                        <!-- Donnerstag -->
+                        <div class="day-row">
+                            <span class="day-label">Donnerstag:</span>
+                            <select id="do_von"><option value="Keine Zeit">Von...</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option></select>
+                            <select id="do_bis"><option value="">Bis...</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option></select>
+                        </div>
+                        <!-- Freitag -->
+                        <div class="day-row">
+                            <span class="day-label">Freitag:</span>
+                            <select id="fr_von"><option value="Keine Zeit">Von...</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option></select>
+                            <select id="fr_bis"><option value="">Bis...</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option></select>
+                        </div>
+                        <!-- Samstag -->
+                        <div class="day-row">
+                            <span class="day-label">Samstag:</span>
+                            <select id="sa_von"><option value="Keine Zeit">Von...</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option></select>
+                            <select id="sa_bis"><option value="">Bis...</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option></select>
+                        </div>
+                    </div>
                 </div>
+
                 
                 <div class="form-group">
                     <textarea id="wuensche" placeholder="Besondere Wünsche oder Anmerkungen..." rows="3" style="width: 100%; border-radius: 5px; padding: 10px; border: 1px solid #ddd;"></textarea>
