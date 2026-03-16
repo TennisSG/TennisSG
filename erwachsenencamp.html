@@ -68,10 +68,14 @@
     
     <script src="script.js"></script> 
     <script>
-    function toggleMenu() {
-        var element = document.getElementById("nav-list");
-        element.classList.toggle("active");
-    }
+   function toggleMenu(event) {
+    // Falls ein Event mitgeliefert wird, verhindern wir das "Durchreichen" des Klicks
+    if (event) event.stopPropagation();
+    
+    var element = document.getElementById("nav-list");
+    element.classList.toggle("active");
+}
+
     </script>
 
 
