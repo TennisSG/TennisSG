@@ -211,7 +211,6 @@ html, body {
         display: flex !important;
         flex-direction: row !important;
         justify-content: space-between !important;
-        align-items: center !important;
         padding: 0 15px !important;
         height: 70px !important;
         width: 100% !important;
@@ -219,11 +218,28 @@ html, body {
     }
 
     header h1 {
-        font-size: 1.1rem !important;
-        margin: 0 !important;
-        white-space: nowrap; /* Name bleibt in einer Zeile */
+        font-size: 1rem !important;
+        max-width: 70%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+ /* 3. Tabellen-Rettung (Flüssig statt Starr) */
+    .table-container {
+        width: 100% !important;
+        overflow-x: auto; /* Nur die Tabelle darf wischen */
+        -webkit-overflow-scrolling: touch;
+        margin: 10px 0;
     }
 
+    table, .detailed-record-table {
+        width: 100% !important; /* Nutzt erst mal nur 100% */
+        min-width: auto !important; /* KEINE feste Breite mehr! */
+        font-size: 0.85rem; /* Schrift leicht verkleinern für Mobile */
+    }
+      /* Zellen-Inhalt optimieren */
+    th, td {
+        padding: 8px 4px !important; /* Weniger Platz verschwenden */
+    }
     /* Burger-Icon: Erzwungene Sichtbarkeit */
     .menu-icon {
         display: flex !important;
