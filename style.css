@@ -272,7 +272,7 @@ html, body {
 
     /* Öffnet das Untermenü beim Antippen des Hauptpunkts */
     .dropdown:active .dropdown-content,
-    .dropdown:focus-within .dropdown-content {
+    .dropdown .dropdown-content {
         display: block;
     }
 
