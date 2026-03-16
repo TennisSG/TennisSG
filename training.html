@@ -114,7 +114,66 @@
             </div>
 
             
-            <p class="hint">Einfach herunterladen, ausfüllen und per WhatsApp oder E-Mail an Sönke senden.</p>
+            <p class="hint">Einfach herunterladen, ausfüllen und per E-Mail an Sönke senden oder du nutzt die folgende Direktanmeldung</p>
+        </section>
+
+        <section id="direktanmeldung" class="submission-card" style="margin-top: 50px; border: 2px solid #27ae60;">
+            <h3>📱 Schnellanmeldung via WhatsApp</h3>
+            <p>Fülle die Felder aus und sende deine Anmeldung direkt an Sönke. 
+            Ein Klick öffnet WhatsApp mit deinem fertigen Text.</p>
+            
+            <form id="trainingForm">
+                <!-- Basis-Daten -->
+                <div class="form-group">
+                    <input type="text" id="nameKind" placeholder="Name des Kindes" required>
+                    <input type="text" id="jahrgang" placeholder="Jahrgang (z.B. 2014)" required>
+                </div>
+
+                <!-- Trainings-Dropdown & Athletik -->
+                <div class="form-group">
+                    <select id="trainingsart" required>
+                        <option value="" disabled selected>Anzahl Trainings / Art?</option>
+                        <option value="1x Basis">1x Basis</option>
+                        <option value="2x Basis">2x Basis</option>
+                        <option value="3x Basis">3x Basis</option>
+                        <option value="1x Team">1x Team</option>
+                        <option value="2x Team">2x Team</option>
+                        <option value="3x Team">3x Team</option>
+                        <option value="4x Team">4x Team</option>
+                    </select>
+                    <label style="display: flex; align-items: center; background: #eee; padding: 10px; border-radius: 5px; flex: 1;">
+                        <input type="checkbox" id="athletik" style="margin-right: 10px;"> + Athletiktraining
+                    </label>
+                </div>
+
+                <!-- Zeiten & Wünsche -->
+                <div class="form-group">
+                    <input type="text" id="tage" placeholder="Mögliche Wochentage (z.B. Mo, Mi, Fr)" required>
+                    <input type="text" id="zeiten" placeholder="Mögliche Uhrzeiten (z.B. ab 15:00)" required>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="wuensche" placeholder="Besondere Wünsche oder Anmerkungen..." rows="3" style="width: 100%; border-radius: 5px; padding: 10px; border: 1px solid #ddd;"></textarea>
+                </div>
+
+                <!-- Datenschutz & Einverständnis -->
+                <div class="privacy-box" style="text-align: left; font-size: 0.85rem; background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                    <h4>Einverständniserklärungen (freiwillig)</h4>
+                    <label class="check-item">
+                        <input type="checkbox" id="consent_rank"> Veröffentlichung von Erfolgen & Rekorden auf der Webseite.
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" id="consent_video"> Videoaufnahmen zur Technikkorrektur (interne Analyse).
+                    </label>
+                    <p style="margin-top: 10px; color: #666;">
+                        <em>Hinweis:</em> Die Einwilligung ist freiwillig und jederzeit widerrufbar (z.B. per E-Mail an tennissg@web.de). Bei unter 16-Jährigen willigen hiermit die Erziehungsberechtigten ein.
+                    </p>
+                </div>
+
+                <button type="button" onclick="sendTrainingWhatsApp()" class="button whatsapp-btn" style="width: 100%;">
+                    🟢 Anmeldung via WhatsApp senden
+                </button>
+            </form>
         </section>
 
     
