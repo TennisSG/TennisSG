@@ -194,14 +194,22 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 
 /* --- 3. MOBILE NAVIGATION (Handy unter 768px) --- */
 @media screen and (max-width: 768px) {
-    /* Burger-Striche SICHTBAR machen */
-    .menu-icon {display: flex !important;flex-direction: column;gap: 5px;padding: 15px;background: #1b4d3e; /* Kleiner grüner Kasten fürs Icon */border-radius: 5px;margin-top: 10px;}
-    .menu-icon span {display: block;width: 30px;height: 4px;background-color: #ffffff !important; /* Weißer Kontrast */}
-    /* Das Menü stabilisieren */
-    #nav-list {display: none;flex-direction: column;position: fixed; /* Fixed statt absolute für Stabilität */top: 90px;left: 0;width: 100%;background: #2c3e50;max-height: calc(100vh - 90px);overflow-y: auto;padding-bottom: 20px;}
-    /* Bleibt offen, wenn 'active' Klasse da ist */
-    #nav-list.active {display: flex !important;}
-    /* Dropdowns auf dem Handy: Immer ausgeklappt ODER per Klick */
-    .dropdown-content {display: block; /* Auf dem Handy direkt zeigen, um Klick-Probleme zu vermeiden */position: static;background: #3e5871;width: 100%;}
+    /* Header-Layout: Logo links, Icon rechts */
+    header {display: flex;flex-direction: row !important; /* Nebeneinander statt untereinander */justify-content: space-between;align-items: center;padding: 0 20px;height: 70px;}
+    header h1 {margin: 0;font-size: 1.2rem;}
+    /* Burger-Icon Styling */
+    .menu-icon {display: flex !important;margin-top: 0; /* Zentrierung im Header */}
+    /* Das Hauptmenü (nav-list) */
+    #nav-list {display: none;position: fixed;top: 70px; left: 0; width: 100%;background: #2c3e50;flex-direction: column;padding: 0;}
+    #nav-list.active { display: flex !important; }
+    /* Dropdowns auf dem Handy STEUERN */
+    .dropdown-content {display: none; /* Erstmal verstecken */position: static;background: #3e5871;}
+    /* Nur zeigen, wenn der übergeordnete Punkt aktiv ist */
+    .dropdown:active .dropdown-content,
+    .dropdown:focus .dropdown-content,
+    .dropdown:focus-within .dropdown-content {display: block;}
+    /* Abstand für den Inhalt unter dem Header */
+    body { padding-top: 80px; }
 }
+
 
