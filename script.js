@@ -73,3 +73,9 @@ function sendTrainingWhatsApp() {
 
     window.open(`https://wa.me/4915775211552 ?text=${message}`, '_blank');
 }
+
+// Stelle sicher, dass die toggleMenu-Funktion in deiner script.js steht (die auf jeder Seite geladen wird).
+function toggleMenu() {
+    var navList = document.getElementById("nav-list");
+    navList.classList.toggle("active");
+}
