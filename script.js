@@ -74,30 +74,33 @@ function sendTrainingWhatsApp() {
     window.open(`https://wa.me/4915775211552 ?text=${message}`, '_blank');
 }
 
-// Stelle sicher, dass die toggleMenu-Funktion in deiner script.js steht (die auf jeder Seite geladen wird).
-function toggleMenu(event) {
-    if (event) event.stopPropagation();
+// Öffnet/Schließt das Hauptmenü (Burger)
+function toggleMenu() {
     var nav = document.getElementById("nav-list");
     nav.classList.toggle("active");
 }
 
-// NEU: Speziell für die Dropdowns am Handy
-document.querySelectorAll('.dropdown').forEach(item => {
-    item.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
-            // Findet das Untermenü in diesem Listenpunkt
-            var content = this.querySelector('.dropdown-content');
-            
-            // Wenn es schon offen ist -> zu machen. Wenn zu -> aufmachen.
-            if (content.style.display === 'block') {
-                content.style.display = 'none';
-            } else {
-                // Erst alle anderen Dropdowns schließen (für die Übersicht)
-                document.querySelectorAll('.dropdown-content').forEach(c => c.style.display = 'none');
-                content.style.display = 'block';
+// Steuert die Dropdowns auf dem Handy
+document.addEventListener("DOMContentLoaded", function() {
+    var dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(function(dd) {
+        dd.addEventListener('click', function(event) {
+            // Nur auf mobilen Geräten (unter 768px)
+            if (window.innerWidth <= 768) {
+                // Verhindert, dass der Klick das Hauptmenü schließt
+                event.preventDefault(); 
+                event.stopPropagation();
+                
+                // Schließt andere offene Dropdowns
+                dropdowns.forEach(function(other) {
+                    if (other !== dd) other.classList.remove('open');
+                });
+
+                // Öffnet/Schließt das angeklickte Dropdown
+                dd.classList.toggle('open');
             }
-            e.stopPropagation();
-        }
+        });
     });
 });
 
