@@ -1,7 +1,7 @@
 /* --- 1. HEADER & GRUNDSTRUKTUR --- */
 header {position: fixed;top: 0; left: 0; width: 100%;background-color: #2c3e50;z-index: 10000;height: 90px;display: flex;flex-direction: column;align-items: center;justify-content: center;}
 header h1 { color: white; margin: 0; font-size: 1.4rem; }
-body { padding-top: 100px; } /* Platz für den fixen Header */
+body { padding-top: 100px !important; } /* Platz für den fixen Header */
 
 /* --- 2. NAVIGATION DESKTOP (Normalansicht) --- */
 #nav-list { display: flex; list-style: none; padding: 0; margin: 5px 0 0 0; }
@@ -201,4 +201,10 @@ html, body {max-width: 100%;overflow-x: hidden; /* Verhindert das seitliche Schi
     /* Tabellen-Rettung */
     .table-container { width: 100% !important; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0; }
     table, .detailed-record-table { width: 100% !important; min-width: auto !important; font-size: 0.85rem; }
+    /* Alle Boxen-Gitter auf dem Handy UNTEREINANDER stapeln */
+    .info-grid, .about-grid, .reason-grid {display: flex !important;flex-direction: column !important; /* Macht aus nebeneinander -> untereinander */gap: 15px; /* Abstand zwischen den gestapelten Boxen */}
+    /* Sicherstellen, dass die Boxen die volle Breite nutzen */
+    .info-box, .reason-card, .about-text, .about-image {width: 100% !important;margin-left: 0 !important;margin-right: 0 !important;}
+}
+
 }
