@@ -75,7 +75,8 @@ function sendTrainingWhatsApp() {
 
 
 // Öffnet/Schließt das Hauptmenü (Burger)
-function toggleMenu() {
+function toggleMenu(event) {
+    if (event) event.stopPropagation(); // Wichtig: verhindert sofortiges Wiederschließe
     var nav = document.getElementById("nav-list");
     nav.classList.toggle("active");
 }
