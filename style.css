@@ -204,103 +204,60 @@ html, body {
     margin: 0;
     padding: 0;
 }
-/* handy navigation*/
 @media screen and (max-width: 768px) {
-    /* Header: Logo links, Burger rechts, fest am Rand */
+    /* 1. Header & Layout-Fixes */
     header {
         display: flex !important;
         flex-direction: row !important;
         justify-content: space-between !important;
         padding: 0 15px !important;
         width: 100% !important;
+        height: 70px !important;
     }
 
-    header h1 {
-        font-size: 1rem !important;
-        max-width: 70%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
- /* 3. Tabellen-Rettung (Flüssig statt Starr) */
-    .table-container {
-        width: 100% !important;
-        overflow-x: auto; /* Nur die Tabelle darf wischen */
-        -webkit-overflow-scrolling: touch;
-        margin: 10px 0;
-    }
+    header h1 { font-size: 1rem !important; margin: 0 !important; }
 
-    table, .detailed-record-table {
-        width: 100% !important; /* Nutzt erst mal nur 100% */
-        min-width: auto !important; /* KEINE feste Breite mehr! */
-        font-size: 0.85rem; /* Schrift leicht verkleinern für Mobile */
-    }
-      /* Zellen-Inhalt optimieren */
-    th, td {
-        padding: 8px 4px !important; /* Weniger Platz verschwenden */
-    }
-    /* Burger-Icon: Erzwungene Sichtbarkeit */
+    /* 2. Burger-Icon */
     .menu-icon {
         display: flex !important;
         flex-direction: column;
         justify-content: center;
         gap: 5px;
-        width: 35px;
-        height: 35px;
         cursor: pointer;
         z-index: 10001;
     }
+    .menu-icon span { width: 25px; height: 3px; background: white !important; }
 
-    .menu-icon span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: white !important;
-        border-radius: 2px;
-    }
-
-    /* Menü-Liste: Schiebt sich unter den Header */
+    /* 3. Menü-Liste */
     #nav-list {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
+        top: 70px; left: 0; width: 100%;
         background: #2c3e50;
-        padding: 0;
-        margin: 0;
+        padding: 0; margin: 0;
         border-top: 1px solid #3e5871;
     }
 
-    #nav-list.active {
-        display: flex !important;
-    }
+    #nav-list.active { display: flex !important; }
 
-    /* Dropdowns auf Handy: Standardmäßig zu, öffnen bei Tippen */
+    /* 4. Dropdowns (WICHTIG!) */
     .dropdown-content {
-        display: none;
+        display: none; /* Standardmäßig ZU */
         background: #3e5871;
         position: static;
         width: 100%;
     }
 
-    /* Öffnet das Untermenü beim Antippen des Hauptpunkts */
-    .dropdown:active .dropdown-content,
-    .dropdown .dropdown-content {
-        display: block;
+    /* Diese Klasse wird per JavaScript für das aktive Dropdown gesetzt */
+    .dropdown.open .dropdown-content {
+        display: block !important;
     }
 
-    #nav-list li {
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #3e5871;
-        padding: 15px 0;
-    }
+    #nav-list li { width: 100%; text-align: center; border-bottom: 1px solid #3e5871; padding: 15px 0; }
+    body { padding-top: 80px !important; }
 
-    body {
-        padding-top: 80px !important;
-    }
+    /* Tabellen-Rettung */
+    .table-container { width: 100% !important; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0; }
+    table, .detailed-record-table { width: 100% !important; min-width: auto !important; font-size: 0.85rem; }
 }
-
-
-
