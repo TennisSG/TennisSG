@@ -196,6 +196,6 @@ html, body {max-width: 100%;overflow-x: hidden; /* Verhindert das seitliche Schi
     #nav-list li { width: 100%; text-align: center; border-bottom: 1px solid #3e5871; padding: 15px 0; }
     body { padding-top: 80px !important; }
     /* Tabellen-Rettung */
-    .table-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0; }
+    .table-container { width: 100% !important; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0; }
     table, .detailed-record-table { width: 100% !important; min-width: auto !important; font-size: 0.85rem; }
 }
