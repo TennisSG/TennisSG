@@ -207,4 +207,9 @@ html, body {max-width: 100%;overflow-x: hidden; /* Verhindert das seitliche Schi
     .info-box, .reason-card, .about-text, .about-image {width: 100% !important;margin-left: 0 !important;margin-right: 0 !important;}
 }
 
+/*Ranglisten Styling*/
+.ranking-box {background: #fff;padding: 20px;border-radius: 10px;box-shadow: 0 2px 8px rgba(0,0,0,0.1);margin-bottom: 20px;}
+.ranking-box ol {padding-left: 20px;font-weight: bold;color: #2c3e50;}
+.ranking-box li {margin-bottom: 8px;padding-bottom: 5px;border-bottom: 1px dotted #ccc;}
+.rule-card {background: #fdfdfd;border: 1px solid #ddd;padding: 20px;margin-bottom: 15px;border-radius: 8px;}
 

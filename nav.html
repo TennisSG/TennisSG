@@ -1,5 +1,5 @@
 <nav>
-    <div class="menu-icon" onclick="toggleMenu()">
+    <div class="menu-icon" onclick="toggleMenu(event)">
         <span></span>
         <span></span>
         <span></span>
@@ -41,7 +41,16 @@
                 <a href="erwachsenencamp.html">Erwachsenen Camp</a>
             </div>
         </li>
-        <li><a href="rekorde.html">Rekorde</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Rangliste & Forderung ▾</a>
+            <div class="dropdown-content">
+                <a href="rekorde.html">Club-Rekorde</a>
+                <a href="ranglisten.html">Interne Rangliste</a>
+                <a href="forderungsspiele.html">Forderungs-Regeln</a>
+            </div>
+        </li>
         <li><a href="philosophie.html">Über mich</a></li>
     </ul>
+    
+
 </nav>
