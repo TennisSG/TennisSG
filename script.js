@@ -112,6 +112,17 @@ document.addEventListener("DOMContentLoaded", function() {
             // Optional: Schließt auch alle offenen Dropdowns im Menü
             dropdowns.forEach(d => d.classList.remove('open'));
         }
+    // Schließt das Menü automatisch, wenn ein Link angeklickt wird
+    document.querySelectorAll('#nav-list a').forEach(link => {
+        link.addEventListener('click', () => {
+            var nav = document.getElementById("nav-list");
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
+    });
+    
+
     });
 });
 
