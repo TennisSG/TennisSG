@@ -39,21 +39,52 @@
                     <h3>Wichtige Details</h3>
                     <p><strong>Datum:</strong> Sonntag, 26. April 2026</p>
                     <p><strong>Beginn:</strong> 10 Uhr</p>
-                    <p><strong>Startgebühr:</strong> 10,- € pro Team oder etwas für unser Buffet</p>
+                    <p><strong>Startgebühr:</strong> 10,- € pro Team oder bringt etwas für unser Buffet mit</p>
                     <p><strong>Bälle:</strong> Je nach Alter des Kindes (Methodikbälle Rot/Orange/Grün/Gelb).</p>
                 </div>
             </div>
 
             <div class="cta-section">
                 <h3>Anmeldung</h3>
-                <p>Melde dich bis zum 21.April über die Liste im Clubhaus an, per Whatsapp über 01577/52 11 552 oder sende eine E-Mail an tennissg@web.de.</p>
+                <p>Melde dich bis zum 21.April per Whatsapp über 01577/52 11 552 oder sende eine E-Mail an tennissg@web.de.</p>
                 <div class="cta-buttons">
                     <a href="https://wa.me/4915775211552" class="button whatsapp-btn" target="_blank">💬 Via WhatsApp</a>
                     <a href="mailto:tennissg@web.de?subject=Anmeldung Clubmeisterschaft ATC" class="button">📧 Per E-Mail</a>
-                    <a href="tel:+4915775211552" class="button call-btn">📞 Anrufen</a>
                 </div>
             </div>
         </section>
+        <section id="anmeldung-eltern-kind" class="submission-card" style="margin-top: 50px; border: 2px solid #27ae60;">
+            <h3>🎾 Anmeldung Eltern-Kind Turnier</h3>
+            <p>Meldet euch als Team direkt via WhatsApp an. Ein Klick bereitet die Nachricht für Sönke vor.</p>
+            
+            <form id="elternKindForm">
+                <div class="form-group">
+                    <input type="text" id="erwachsener" placeholder="Name Erwachsener" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="jugendlicher" placeholder="Name Jugendlicher (inkl. AK)" required>
+                </div>
+
+                <div class="form-group">
+                    <select id="beitrag" required>
+                        <option value="" disabled selected>Verpflegung oder Startgebühr?</option>
+                        <option value="Ich zahle die Startgebühr">Ich zahle die Startgebühr (PayPal/Bar)</option>
+                        <option value="Ich bringe einen Kuchen mit">Ich bringe einen Kuchen mit 🍰</option>
+                        <option value="Ich bringe Salate/Fingerfood mit">Ich bringe Salate/Fingerfood mit 🥗</option>
+                        <option value="Ich bringe Obst mit">Ich bringe Obst mit 🍎</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="ek_bemerkung" placeholder="Besondere Anmerkungen (z.B. Leihschläger benötigt)..." rows="2" style="width: 100%; border-radius: 5px; padding: 10px; border: 1px solid #ddd;"></textarea>
+                </div>
+
+                <button type="button" onclick="sendElternKindWhatsApp()" class="button whatsapp-btn" style="width: 100%;">
+                    🟢 Team via WhatsApp anmelden
+                </button>
+            </form>
+        </section>
+
     </main>
 
     <div id="footer-placeholder"></div>

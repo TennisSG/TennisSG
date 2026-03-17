@@ -62,6 +62,7 @@ function sendTrainingWhatsApp() {
         `🎾 ANMELDUNG TRAINING\n\n` +
         `👤 Kind: ${name} (${jg})\n` +
         `📝 Art: ${art}\n` +
+        `📝 Art: ${art}\n` +
         `🏃 Athletik: ${athl}\n\n` +
         `📅 VERFÜGBARKEIT:\n${zeitenListe}\n\n` +
         `💭 Wünsche: ${wunsch}\n\n` +
@@ -143,3 +144,25 @@ function sendClubWhatsApp() {
 }
 
 
+// Eltern-Kind Turnier
+function sendElternKindWhatsApp() {
+    const erw = document.getElementById('erwachsener').value;
+    const jug = document.getElementById('jugendlicher').value;
+    const beitrag = document.getElementById('beitrag').value;
+    const info = document.getElementById('ek_bemerkung').value;
+
+    if(!erw || !jug || !beitrag) {
+        alert("Bitte fülle die Namen und die Info zum Beitrag aus!");
+        return;
+    }
+
+    const message = encodeURIComponent(
+        `👨‍👩‍👧‍👦 ANMELDUNG ELTERN-KIND TURNIER\n\n` +
+        `👤 Erwachsener: ${erw}\n` +
+        `👦 Jugendlicher: ${jug}\n` +
+        `🍕 Beitrag/Gebühr: ${beitrag}\n` +
+        `📝 Info: ${info}`
+    );
+
+    window.open(`https://wa.me/4915775211552 ?text=${message}`, '_blank');
+}
