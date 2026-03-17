@@ -1,15 +1,5 @@
 /* --- 1. HEADER & GRUNDSTRUKTUR --- */
-header {
-    position: fixed;
-    top: 0; left: 0; width: 100%;
-    background-color: #2c3e50;
-    z-index: 10000;
-    height: 90px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+header {position: fixed;top: 0; left: 0; width: 100%;background-color: #2c3e50;z-index: 10000;height: 90px;display: flex;flex-direction: column;align-items: center;justify-content: center;}
 header h1 { color: white; margin: 0; font-size: 1.4rem; }
 body { padding-top: 100px; } /* Platz für den fixen Header */
 
@@ -20,10 +10,7 @@ body { padding-top: 100px; } /* Platz für den fixen Header */
 .menu-icon { display: none; } /* Auf PC unsichtbar */
 
 /* Dropdown Desktop */
-.dropdown-content {
-    display: none; position: absolute; background: #34495e;
-    min-width: 180px; z-index: 10001; box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
+.dropdown-content {display: none; position: absolute; background: #34495e;min-width: 180px; z-index: 10001; box-shadow: 0 8px 16px rgba(0,0,0,0.2);}
 .dropdown-content a { padding: 10px; display: block; font-size: 0.85rem !important; }
 .dropdown:hover .dropdown-content { display: block; }
 
@@ -66,6 +53,7 @@ td a { text-decoration: none; color: #2c3e50; font-weight: bold; display: block;
 .highlight-box {background-color: #e8f5e9;padding: 20px;border-radius: 8px;border-left: 6px solid #27ae60;margin-bottom: 30px;}
 .donation-info {background: #fdf2e9;padding: 15px;border-radius: 8px;margin: 20px 0;border: 1px dashed #e67e22;text-align: center;}
 
+
 /* Falls noch nicht geschehen: WhatsApp & Telefon Farben */
 .whatsapp-btn { background-color: #25D366 !important; }
 .call-btn { background-color: #3498db !important; }
@@ -77,6 +65,7 @@ td a { text-decoration: none; color: #2c3e50; font-weight: bold; display: block;
 
 .mode-details ul {list-style-type: "🎾 ";padding-left: 20px;}
 .mode-details h3 {margin-top: 0;}
+
 
 /* Dunkelgrüne Box für die Siegerehrung */
 .award-ceremony-box {background-color: #1b4d3e; /* Edles Dunkelgrün */color: #ffffff; /* Weiße Schrift für Kontrast */padding: 25px;border-radius: 10px;text-align: center;margin: 30px 0;box-shadow: 0 4px 10px rgba(0,0,0,0.2);border: 2px solid #27ae60;}
@@ -142,7 +131,10 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 .check-item {display: block;margin: 10px 0;cursor: pointer;font-size: 1rem;}
 .check-item input[type="checkbox"] {margin-right: 10px;transform: scale(1.2); /* Macht die Box auf dem Handy größer */accent-color: #f1c40f; /* Goldener Haken */}
 
+
+
 /* --- STYLING FÜR DIE REKORDE-SEITE --- */
+
 /* Der Hintergrund der gesamten Sektion */
 .records-section {padding: 20px;background-color: #f4f7f6; /* Ganz helles Grau/Grün für den Hintergrund */border-radius: 15px;}
 /* Die Container-Karten für jede Disziplin */
@@ -150,29 +142,16 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 /* Der dunkelgrüne Header der Karte */
 .record-header {background-color: #1b4d3e; /* Edles Tennis-Dunkelgrün */color: white;padding: 15px 20px;border-bottom: 3px solid #27ae60;}
 .record-header h3 {margin: 0;font-size: 1.4rem;text-align: center;}
-
 /* Tabellen-Styling innerhalb der Karten */
 .detailed-record-table {width: 100%;border-collapse: collapse;background-color: white;}
 .detailed-record-table th {background-color: #f8f9fa;color: #2c3e50;padding: 12px;font-size: 0.85rem;text-transform: uppercase;border-bottom: 2px solid #eee;}
 .detailed-record-table td {padding: 15px 10px;border-bottom: 1px solid #eee;text-align: center;color: #333;}
-
 /* Die Spalte mit den Rekord-Zahlen hervorheben */
 .detailed-record-table td.score {font-weight: bold;color: #27ae60;background-color: #f1f8f5;width: 20%; /* Etwas breiter für das Jahr */white-space: nowrap; /* Verhindert Zeilenumbruch bei Jahr */}
 /* Zeilen beim Drüberfahren hervorheben */
-.detailed-record-table tr:hover {
-    background-color: #f9f9f9;
-}
-
+.detailed-record-table tr:hover {background-color: #f9f9f9;}
 /* Altersklassen-Spalte fett machen */
-.detailed-record-table td:first-child {
-    font-weight: bold;
-    background-color: #fcfcfc;
-    color: #1b4d3e;
-    width: 10%;
-}
-
-
-    
+.detailed-record-table td:first-child {font-weight: bold;background-color: #fcfcfc;color: #1b4d3e;width: 10%;}    
 /* Die Challenge-Box am Ende */
 .challenge-box {background-color: #2c3e50;color: white;padding: 30px;text-align: center;border-radius: 12px;margin-top: 50px;border: 2px solid #f1c40f; /* Goldener Rahmen */}
 .record-submission {margin-top: 50px;padding-bottom: 50px;}
@@ -187,77 +166,36 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 .price-hint {background: #fff5f5;padding: 10px;border: 1px solid #feb2b2;border-radius: 5px;font-size: 0.9rem;}
 .check-container {background: #f9f9f9;padding: 20px;border: 1px solid #ddd;border-radius: 10px;}
 
+
 /* training.html - Anmeldung Whatsapp */
 .day-row {display: flex;align-items: center;gap: 10px;margin-bottom: 10px;border-bottom: 1px solid #eee; padding-bottom: 5px;}
 .day-label {width: 85px;font-weight: bold;}
 .day-row select {flex: 1;padding: 5px;font-size: 0.9rem;}
 
-/* --- 3. MOBILE NAVIGATION (Handy unter 768px) --- */
-/* Globale Rettung gegen das Wackeln der Seite */
-* {
-    box-sizing: border-box;
-}
 
-html, body {
-    max-width: 100%;
-    overflow-x: hidden; /* Verhindert das seitliche Schieben */
-    margin: 0;
-    padding: 0;
-}
+
+/* --- 3. MOBILE NAVIGATION (Handy unter 768px) --- */
+
+/* Globale Rettung gegen das Wackeln der Seite */
+* {box-sizing: border-box;}
+html, body {max-width: 100%;overflow-x: hidden; /* Verhindert das seitliche Schieben */margin: 0;padding: 0;}
 @media screen and (max-width: 768px) {
     /* 1. Header & Layout-Fixes */
-    header {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        padding: 0 15px !important;
-        width: 100% !important;
-        height: 70px !important;
-    }
-
+    header {display: flex !important;flex-direction: row !important;justify-content: space-between !important;padding: 0 15px !important;width: 100% !important;height: 70px !important;}
     header h1 { font-size: 1rem !important; margin: 0 !important; }
-
     /* 2. Burger-Icon */
-    .menu-icon {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        cursor: pointer;
-        z-index: 10001;
-    }
+    .menu-icon {display: flex !important;flex-direction: column;justify-content: center;gap: 5px;cursor: pointer;z-index: 10001;}
     .menu-icon span { width: 25px; height: 3px; background: white !important; }
-
     /* 3. Menü-Liste */
-    #nav-list {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px; left: 0; width: 100%;
-        background: #2c3e50;
-        padding: 0; margin: 0;
-        border-top: 1px solid #3e5871;
-    }
-
+    #nav-list {display: none;flex-direction: column;position: absolute;top: 70px; left: 0; width: 100%;background: #2c3e50;padding: 0; margin: 0;border-top: 1px solid #3e5871;}
     #nav-list.active { display: flex !important; }
-
     /* 4. Dropdowns (WICHTIG!) */
-    .dropdown-content {
-        display: none; /* Standardmäßig ZU */
-        background: #3e5871;
-        position: static;
-        width: 100%;
-    }
-
+    .dropdown-content {display: none; /* Standardmäßig ZU */background: #3e5871;position: static;width: 100%;}
     /* Diese Klasse wird per JavaScript für das aktive Dropdown gesetzt */
-    .dropdown.open .dropdown-content {
-        display: block !important;
-    }
-
+    .dropdown.open .dropdown-content {display: block !important;}
     #nav-list li { width: 100%; text-align: center; border-bottom: 1px solid #3e5871; padding: 15px 0; }
     body { padding-top: 80px !important; }
-
     /* Tabellen-Rettung */
     .table-container { width: 100% !important; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0; }
-    table, .detailed-record-table { width: 100% !important; min-width: auto !important; font-size: 0.85rem; }
+    table, .detailed-record-table { width: 100% !important; min-width: 500px !important; font-size: 0.85rem; }
 }
