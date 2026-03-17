@@ -96,7 +96,8 @@ function sendWhatsApp() {
 function sendTrainingWhatsApp() {
     const name = document.getElementById('nameKind').value;
     const jg = document.getElementById('jahrgang').value;
-    const art = document.getElementById('trainingsart').value;
+    const art1 = document.getElementById('trainingsart').value;
+    const art2 = document.getElementById('trainingsart2').value;
     const athl = document.getElementById('athletik').checked ? "JA" : "Nein";
     const wunsch = document.getElementById('wuensche').value;   
     // Helfer-Funktion zum Auslesen der Tage
@@ -116,8 +117,8 @@ function sendTrainingWhatsApp() {
     const message = encodeURIComponent(
         `🎾 ANMELDUNG TRAINING\n\n` +
         `👤 Kind: ${name} (${jg})\n` +
-        `📝 Art: ${art}\n` +
-        `📝 Art: ${art}\n` +
+        `📝 Art1: ${art1}\n` +
+        `📝 Art2: ${art2}\n` +
         `🏃 Athletik: ${athl}\n\n` +
         `📅 VERFÜGBARKEIT:\n${zeitenListe}\n\n` +
         `💭 Wünsche: ${wunsch}\n\n` +
