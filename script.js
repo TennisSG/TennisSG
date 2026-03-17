@@ -61,8 +61,9 @@ function loadComponent(id, file) {
 loadComponent('nav-placeholder', 'nav.html');
 loadComponent('footer-placeholder', 'footer.html');
 
-    // <!-- Für das Davis-Cup-Clubturnier --> !
+    
 
+// <!-- Für das Davis-Cup-Clubturnier --> !
 
 function sendWhatsApp() {
     const name = document.getElementById('name').value;
@@ -123,13 +124,8 @@ function sendTrainingWhatsApp() {
         `🏆 Ranking-Zustimmung: ${document.getElementById('consent_rank').checked ? "JA" : "NEIN"}\n` +
         `📹 Video-Zustimmung: ${document.getElementById('consent_video').checked ? "JA" : "NEIN"}`
     );
-    window.open(`https://wa.me/4915775211552 ?text=${message}`, '_blank');
+    window.open(`https://wa.me/4915775211552?text=${message}`, '_blank');
 }
-
-
-
-
-
 
 
 // Clubmeisterschaften
