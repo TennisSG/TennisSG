@@ -1,3 +1,57 @@
+// 1. Hauptmenü (Burger) öffnen/schließen
+function toggleMenu(event) {
+    if (event) event.stopPropagation();
+    var nav = document.getElementById("nav-list");
+    nav.classList.toggle("active");
+}
+
+// 2. Dropdown-Logik für Handys (Untermenüs öffnen)
+document.addEventListener("DOMContentLoaded", function() {
+    var dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(function(dd) {
+        dd.addEventListener('click', function(event) {
+            if (window.innerWidth <= 768) {
+                // Verhindert, dass das Menü beim Klick auf das Dropdown schließt
+                event.stopPropagation();
+                
+                // Andere Dropdowns schließen
+                dropdowns.forEach(function(other) {
+                    if (other !== dd) other.classList.remove('open');
+                });
+
+                // Dieses Dropdown öffnen/schließen
+                this.classList.toggle('open');
+            }
+        });
+    });
+
+    // 3. AUTO-CLOSE: Menü schließen, wenn ein ECHTER Link geklickt wird
+    // Wir suchen nur Links, die KEINE Dropdown-Öffner sind
+    document.querySelectorAll('#nav-list a:not(.dropbtn)').forEach(link => {
+        link.addEventListener('click', () => {
+            var nav = document.getElementById("nav-list");
+            nav.classList.remove("active");
+            // Auch alle Dropdowns wieder einfahren
+            dropdowns.forEach(d => d.classList.remove('open'));
+        });
+    });
+
+    // 4. Menü schließen, wenn man auf den Inhaltsbereich (main) tippt
+    document.querySelector('main').addEventListener('click', function() {
+        var nav = document.getElementById("nav-list");
+        nav.classList.remove("active");
+        dropdowns.forEach(d => d.classList.remove('open'));
+    });
+});
+
+
+
+
+
+
+
+
 function loadComponent(id, file) {
     fetch(file)
         .then(response => response.text())
@@ -75,45 +129,6 @@ function sendTrainingWhatsApp() {
 
 
 
-// Öffnet/Schließt das Hauptmenü (Burger)
-function toggleMenu(event) {
-    if (event) event.stopPropagation(); // Wichtig: verhindert sofortiges Wiederschließe
-    var nav = document.getElementById("nav-list");
-    nav.classList.toggle("active");
-}
-
-// Steuert die Dropdowns auf dem Handy
-document.addEventListener("DOMContentLoaded", function() {
-    var dropdowns = document.querySelectorAll('.dropdown');
-
-    dropdowns.forEach(function(dd) {
-        dd.addEventListener('click', function(event) {
-            // Nur auf mobilen Geräten (unter 768px)
-            if (window.innerWidth <= 768) {
-                // Verhindert, dass der Klick das Hauptmenü schließt
-                event.preventDefault(); 
-                event.stopPropagation();
-                
-                // Schließt andere offene Dropdowns
-                dropdowns.forEach(function(other) {
-                    if (other !== dd) other.classList.remove('open');
-                });
-
-                // Öffnet/Schließt das angeklickte Dropdown
-                dd.classList.toggle('open');
-            }
-        });
-    });
-     // NEU: Schließt das Hauptmenü, wenn man irgendwo auf die Seite (main) tippt
-    document.querySelector('main').addEventListener('click', function() {
-        var nav = document.getElementById("nav-list");
-        if (nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            // Optional: Schließt auch alle offenen Dropdowns im Menü
-            dropdowns.forEach(d => d.classList.remove('open'));
-        }
-    });
-});
 
 
 
