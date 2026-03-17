@@ -57,7 +57,7 @@
 
             <div class="donation-info">
                 <h3>Spenden</h3>
-                <p>Wir freuen uns über freiwillige Spenden für die Turnierorganisation oder die Jugendkasse. 😊</p>
+                <p>Wir freuen uns über freiwillige Spenden für Preise und Pokale. 😊</p>
                 <a href="https://www.paypal.me/TennisSG" target="_blank" class="button paypal-btn">💳 Spende via PayPal.me</a>
             </div>
 
@@ -71,6 +71,63 @@
                 </div>
             </div>
         </section>
+        <section id="anmeldung-club" class="submission-card" style="margin-top: 50px; border: 2px solid #27ae60;">
+            <h3>📱 Schnellanmeldung Clubmeisterschaften</h3>
+            <p>Melde dein Kind hier direkt via WhatsApp an. Ein Klick bereitet die Nachricht für Sönke vor.</p>
+            
+            <form id="clubForm">
+                <div class="form-group">
+                    <input type="text" id="nameKindClub" placeholder="Vor- und Nachname des Kindes" required>
+                </div>
+
+                <div class="form-group" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <!-- 1. Altersklasse -->
+                    <select id="ak1" required style="flex: 1; min-width: 150px;">
+                        <option value="" disabled selected>1. Altersklasse?</option>
+                        <option value="U8wm">U8wm (Mini)</option>
+                        <option value="U10wm">U10wm (Midcourt)</option>
+                        <option value="U12wm">U12wm (Grün)</option>
+                        <option value="U15m">U15m (Gelb)</option>
+                        <option value="U15w">U15w (Gelb)</option>
+                        <option value="U18m">U18m (Gelb)</option>
+                        <option value="U18w">U18w (Gelb)</option>
+                        <option value="Newbie">Newbie (Grün)</option>
+                    </select>
+                </div>  
+                <div class="form-group" style="display: flex; gap: 10px; flex-wrap: wrap;">    
+                    <!-- 2. Altersklasse (Optional) -->
+                    <select id="ak2" style="flex: 1; min-width: 150px;">
+                        <option value="Keine zweite AK">2. Altersklasse (optional)?</option>
+                        <option value="U8wm">U8wm (Mini)</option>
+                        <option value="U10wm">U10wm (Midcourt)</option>
+                        <option value="U12wm">U12wm (Grün)</option>
+                        <option value="U15m">U15m (Gelb)</option>
+                        <option value="U15w">U15w (Gelb)</option>
+                        <option value="U18m">U18m (Gelb)</option>
+                        <option value="U18w">U18w (Gelb)</option>
+                        <option value="Newbie">Newbie (Grün)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <select id="verfuegbarkeit" required>
+                        <option value="" disabled selected>Wann hast du Zeit?</option>
+                        <option value="Nur Samstag (12.09.)">Nur Samstag (12.09.)</option>
+                        <option value="Nur Sonntag (13.09.)">Nur Sonntag (13.09.)</option>
+                        <option value="Samstag UND Sonntag">Samstag UND Sonntag (empfohlen)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="club_bemerkung" placeholder="Besondere Anmerkungen..." rows="2" style="width: 100%; border-radius: 5px; padding: 10px; border: 1px solid #ddd;"></textarea>
+                </div>
+
+                <button type="button" onclick="sendClubWhatsApp()" class="button whatsapp-btn" style="width: 100%;">
+                    🟢 Clubmeisterschaft via WhatsApp anmelden
+                </button>
+            </form>
+        </section>
+
     </main>
 
     <div id="footer-placeholder"></div>
