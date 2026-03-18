@@ -188,6 +188,14 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 * {box-sizing: border-box;}
 html, body {max-width: 100%;overflow-x: hidden; /* Verhindert das seitliche Schieben */margin: 0;padding: 0;}
 @media screen and (max-width: 768px) {
+    /* Alle Container auf volle Breite, aber ohne Überstand */
+    .submission-card, .info-box, .highlight-box, .reason-card {
+        width: 100% !important; 
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
     /* 1. Header & Layout-Fixes */
     header {display: flex !important;flex-direction: row !important;justify-content: space-between !important;padding: 0 15px !important;width: 100% !important;height: 70px !important;}
     header h1 { font-size: 1rem !important; margin: 0 !important; }
