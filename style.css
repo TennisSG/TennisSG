@@ -202,6 +202,11 @@ html, body {max-width: 100%;overflow-x: hidden; /* Verhindert das seitliche Schi
         flex-direction: column; /* Untereinander statt nebeneinander */
         width: 100%;
     }
+    /* Verhindert, dass Input-Felder rechts rauswandern */
+    input, select, textarea {
+        width: 100% !important;
+        max-width: 100%;
+    }
     /* 1. Header & Layout-Fixes */
     header {display: flex !important;flex-direction: row !important;justify-content: space-between !important;padding: 0 15px !important;width: 100% !important;height: 70px !important;}
     header h1 { font-size: 1rem !important; margin: 0 !important; }
