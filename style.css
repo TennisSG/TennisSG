@@ -1,7 +1,5 @@
 /* Das sorgt dafür, dass Abstände die Boxen nicht breiter machen als das Handy-Display */
-* {
-    box-sizing: border-box;
-}
+* {box-sizing: border-box;}
 
 /* --- 1. HEADER & GRUNDSTRUKTUR --- */
 header {position: fixed;top: 0; left: 0; width: 100%;background-color: #2c3e50;z-index: 10000;height: 90px;display: flex;flex-direction: column;align-items: center;justify-content: center;}
@@ -185,16 +183,16 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 /* --- 3. MOBILE NAVIGATION (Handy unter 768px) --- */
 
 /* Globale Rettung gegen das Wackeln der Seite */
-* {box-sizing: border-box;}
+
 html, body {max-width: 100%;overflow-x: hidden; /* Verhindert das seitliche Schieben */margin: 0;padding: 0;}
 @media screen and (max-width: 768px) {
     /* Alle Container auf volle Breite, aber ohne Überstand */
-    .submission-card, .info-box, .highlight-box, .reason-card {
-        width: 100% !important; 
+    .submission-card, .info-box, .highlight-box, .reason-card, .record-card, .section, main {
+        width: 100% !important;
         max-width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        box-sizing: border-box !important;
+        margin: 10px 0 !important; /* Nur Abstand nach oben/unten */
+        padding: 15px !important; /* Innenabstand verkleinern */
+        border-left: none !important; /* Spart Platz am Rand */
     }
     /* Falls du Flexbox nutzt, hier das Überlappen verhindern */
     .form-group, .info-grid, .reason-grid {
