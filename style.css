@@ -155,9 +155,9 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 /* Der Hintergrund der gesamten Sektion */
 .records-section {padding: 20px;background-color: #f4f7f6; /* Ganz helles Grau/Grün für den Hintergrund */border-radius: 15px;}
 /* Die Container-Karten für jede Disziplin */
-.record-card {background: #ffffff; /* Weißer Karten-Hintergrund */border-radius: 12px;box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Schatten, damit die Karte "schwebt" */margin-bottom: 40px;overflow: hidden;border: 1px solid #ddd;}
+.record-card {background: #ffffff; /* Weißer Karten-Hintergrund */border-radius: 12px;box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Schatten, damit die Karte "schwebt" */margin-bottom: 40px;overflow: visible !important /* Erlaubt das Rausragen von Elementen */;border: 1px solid #ddd;}
 /* Der dunkelgrüne Header der Karte */
-.record-header {background-color: #1b4d3e; /* Edles Tennis-Dunkelgrün */color: white;padding: 15px 20px;border-bottom: 3px solid #27ae60;}
+.record-header {background-color: #1b4d3e; /* Edles Tennis-Dunkelgrün */color: white;padding: 15px 20px;border-bottom: 3px solid #27ae60;position: relative; /* Wichtig für die Positionierung des Tooltips */}
 .record-header h3 {margin: 0;font-size: 1.4rem;text-align: center;}
 /* Tabellen-Styling innerhalb der Karten */
 .detailed-record-table {width: 100%;border-collapse: collapse;background-color: white;}
@@ -175,6 +175,20 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 .submission-card {background: #fff;padding: 30px;border-radius: 15px;border: 2px solid #27ae60;box-shadow: 0 4px 20px rgba(0,0,0,0.1);}
 .form-group {display: flex;gap: 15px;margin-bottom: 15px;}
 .form-group input, .form-group select {flex: 1;padding: 12px;border: 1px solid #ddd;border-radius: 5px;font-size: 1rem;}
+
+/* Infofelder Rekord-Seite */
+/* Das Info-Icon Styling */
+.info-icon {position: relative;display: inline-block;cursor: help;margin-left: 10px;font-size: 1.1rem;color: #f1c40f; /* Gold-Gelb */}
+/* Der versteckte Text-Kasten */
+.tooltip-text {visibility: hidden;width: 240px;background-color: #2c3e50;color: #fff;text-align: left;border-radius: 8px;padding: 15px;position: absolute;z-index: 10005;/* ÄNDERUNG: Nach unten aufklappen statt nach oben */top: 120%; /* Erscheint unter dem Icon */left: 50%;transform: translateX(-50%); /* Saubere Zentrierung */opacity: 0;transition: opacity 0.3s;font-size: 0.9rem;line-height: 1.4;box-shadow: 0 8px 20px rgba(0,0,0,0.4);font-weight: normal;}
+/* Den kleinen Pfeil nach OBEN zeigen lassen */
+.tooltip-text::after {content: "";position: absolute;bottom: 100%; /* Pfeil oben am Kasten */left: 50%;margin-left: -5px;border-width: 5px;border-style: solid;border-color: transparent transparent #2c3e50 transparent;}
+/* Anzeigen beim Drüberfahren */
+.info-icon:hover .tooltip-text {visibility: visible;opacity: 1;}
+/* Mobile Optimierung: Auf dem Handy zeigen wir es beim Tippen */
+@media screen and (max-width: 768px) {
+    .tooltip-text {left: auto;right: -50px; /* Verschiebung damit es nicht aus dem Handy-Rand ragt */margin-left: 0;}
+}
 
 
 
