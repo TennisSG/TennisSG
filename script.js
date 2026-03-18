@@ -110,7 +110,7 @@ function sendTrainingWhatsApp() {
         getDayTime('mo', 'Mo'), getDayTime('di', 'Di'), getDayTime('mi', 'Mi'),
         getDayTime('do', 'Do'), getDayTime('fr', 'Fr'), getDayTime('sa', 'Sa')
     ].filter(t => t !== "").join('\n');
-    if(!name || !jg || !art || zeitenListe === "") {
+    if(!name || !jg || !art1 || zeitenListe === "") {
         alert("Bitte fülle Name, Jahrgang, Trainingsart und mindestens einen Zeitraum aus!");
         return;
     }
