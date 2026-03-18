@@ -158,7 +158,12 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 .record-card {background: #ffffff; /* Weißer Karten-Hintergrund */border-radius: 12px;box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Schatten, damit die Karte "schwebt" */margin-bottom: 40px;overflow: visible !important /* Erlaubt das Rausragen von Elementen */;border: 1px solid #ddd;}
 /* Der dunkelgrüne Header der Karte */
 .record-header {background-color: #1b4d3e; /* Edles Tennis-Dunkelgrün */color: white;padding: 15px 20px;border-bottom: 3px solid #27ae60;position: relative; /* Wichtig für die Positionierung des Tooltips */}
-.record-header h3 {margin: 0;font-size: 1.4rem;text-align: center;}
+.record-header h3 { display: flex;         /* Aktiviert die Reihe */
+    align-items: center;   /* Zentriert Icon und Text vertikal zueinander */
+    justify-content: center; /* Hält das ganze Paket in der Mitte der grünen Box */
+    gap: 10px;             /* Erzeugt den Abstand zwischen Text und Icon */
+    margin: 0;
+}
 /* Tabellen-Styling innerhalb der Karten */
 .detailed-record-table {width: 100%;border-collapse: collapse;background-color: white;}
 .detailed-record-table th {background-color: #f8f9fa;color: #2c3e50;padding: 12px;font-size: 0.85rem;text-transform: uppercase;border-bottom: 2px solid #eee;}
@@ -183,13 +188,23 @@ html {scroll-behavior: smooth;/* Dieser Wert muss der Höhe deines fixierten Hea
 .tooltip-text {visibility: hidden;width: 240px;background-color: #2c3e50;color: #fff;text-align: left;border-radius: 8px;padding: 15px;position: absolute;z-index: 10005;/* ÄNDERUNG: Nach unten aufklappen statt nach oben */top: 120%; /* Erscheint unter dem Icon */left: 50%;transform: translateX(-50%); /* Saubere Zentrierung */opacity: 0;transition: opacity 0.3s;font-size: 0.9rem;line-height: 1.4;box-shadow: 0 8px 20px rgba(0,0,0,0.4);font-weight: normal;}
 /* Den kleinen Pfeil nach OBEN zeigen lassen */
 .tooltip-text::after {content: "";position: absolute;bottom: 100%; /* Pfeil oben am Kasten */left: 50%;margin-left: -5px;border-width: 5px;border-style: solid;border-color: transparent transparent #2c3e50 transparent;}
+/* Zeige das Feld, wenn man auf das Icon tippt */
+.info-icon:active .tooltip-text,
 /* Anzeigen beim Drüberfahren */
 .info-icon:hover .tooltip-text {visibility: visible;opacity: 1;}
 /* Mobile Optimierung: Auf dem Handy zeigen wir es beim Tippen */
 @media screen and (max-width: 768px) {
-    .tooltip-text {left: auto;right: -50px; /* Verschiebung damit es nicht aus dem Handy-Rand ragt */margin-left: 0;}
+        .tooltip-text {
+        position: fixed;    /* Klebt am Bildschirm, nicht am Icon */
+        top: 30%;           /* Erscheint im oberen Drittel des Handys */
+        left: 10%;          /* 10% Abstand vom linken Rand */
+        width: 80% !important; /* Nutzt 80% der Handybreite */
+        margin-left: 0;
+        transform: none;
+        visibility: hidden;
+        z-index: 20000;     /* Ganz oben auf der Ebene */
+    }
 }
-
 
 
 /* Ranglisten.html */
