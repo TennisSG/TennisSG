@@ -86,7 +86,7 @@ function sendWhatsApp() {
                     `🤝 Zeuge: ${zeuge}`;
 
     // WhatsApp Link öffnen (deine Nummer)
-    window.open(`https://wa.me/4915775211552 ?text=${message}`, '_blank');
+    window.open(`https://wa.me/4915775211552?text=${message}`, '_blank');
 }
 
 
@@ -125,7 +125,7 @@ function sendTrainingWhatsApp() {
         `🏆 Ranking-Zustimmung: ${document.getElementById('consent_rank').checked ? "JA" : "NEIN"}\n` +
         `📹 Video-Zustimmung: ${document.getElementById('consent_video').checked ? "JA" : "NEIN"}`
     );
-    window.open(`https://wa.me/4915775211552 ?text=${message}`, '_blank');
+    window.open(`https://wa.me/4915775211552?text=${message}`, '_blank');
 }
 
 
@@ -152,7 +152,7 @@ function sendClubWhatsApp() {
         `📝 Info: ${info}`
     );
 
-    window.open(`https://wa.me/4915775211552 ?text=${message}`, '_blank');
+    window.open(`https://wa.me/4915775211552?text=${message}`, '_blank');
 }
 
 
@@ -176,5 +176,5 @@ function sendElternKindWhatsApp() {
         `📝 Info: ${info}`
     );
 
-    window.open(`https://wa.me/4915775211552 ?text=${message}`, '_blank');
+    window.open(`https://wa.me/4915775211552?text=${message}`, '_blank');
 }
