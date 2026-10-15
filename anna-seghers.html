@@ -19,11 +19,11 @@
         .time-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed #eee; flex-wrap: wrap; gap: 10px; }
         .time-row:last-child { border-bottom: none; }
         label { display: block; font-weight: bold; margin-bottom: 8px; }
-        select, input[type="text"] { padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; box-sizing: border-box; }
-        input[type="text"] { width: 100%; }
-        select.full-width { width: 100%; }
+        .check-item { display: flex; align-items: flex-start; gap: 8px; font-weight: bold; margin-top: 10px; cursor: pointer; }
+        .check-item input { width: 16px; height: 16px; margin-top: 2px; }
+        select, input[type="text"], input[type="number"] { padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; box-sizing: border-box; width: 100%; }
         select.prio-select { width: 220px; }
-        .whatsapp-btn { display: inline-flex; align-items: center; justify-content: center; background: #25D366; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; border: none; cursor: pointer; width: 100%; margin-top: 10px; }
+        .whatsapp-btn { display: inline-flex; align-items: center; justify-content: center; background: #25D366; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; border: none; cursor: pointer; width: 100%; margin-top: 10px; text-align: center; }
         .whatsapp-btn:hover { background: #20ba5a; }
     </style>
 </head>
@@ -63,8 +63,8 @@
         <p>Um die Gruppen optimal und fair nach Spielstärke und Alter einteilen zu können, benötigen wir deine Flexibilität. <strong>Bitte gib so viele passende Zeiten wie möglich an!</strong></p>
         <p>Wähle für jeden angebotenen Zeitraum einfach aus, wie gut er dir passt:</p>
         <ul>
-            <li><strong>Wunschzeit:</strong> Dein absoluter Lieblingstermin.</li>
             <li><strong>Möglich / Alternative:</strong> Hier habt ihr Zeit, falls die Wunschgruppe voll ist.</li>
+            <li><strong>Wunschzeit:</strong> Dein absoluter Lieblingstermin.</li>
             <li><strong>Geht gar nicht:</strong> An diesem Termin ist definitiv keine Teilnahme möglich.</li>
         </ul>
     </div>
@@ -73,15 +73,20 @@
 
     <form id="registrationForm" onsubmit="sendWhatsApp(event)">
         <div class="form-group">
-            <label for="childName">Name und Alter des Kindes:</label>
-            <input type="text" id="childName" placeholder="z.B. Max Mustermann, 8 Jahre" required>
+            <label for="childName">Name des Kindes:</label>
+            <input type="text" id="childName" placeholder="z.B. Max Mustermann" required>
+        </div>
+
+        <div class="form-group">
+            <label for="birthYear">Jahrgang:</label>
+            <input type="number" id="birthYear" placeholder="z.B. 2018" min="2000" max="2026" required>
         </div>
 
         <div class="form-group">
             <label for="frequencySelect">Gewünschte Trainingshäufigkeit:</label>
-            <select id="frequencySelect" class="full-width" required>
-                <option value="1x pro Woche">1x pro Woche trainieren</option>
-                <option value="2x pro Woche">2x pro Woche trainieren</option>
+            <select id="frequencySelect" required>
+                <option value="1x pro Woche">1x pro Woche</option>
+                <option value="2x pro Woche">2x pro Woche</option>
             </select>
         </div>
 
@@ -91,28 +96,28 @@
             
             <div class="time-row">
                 <span>16:30 - 17:15 Uhr (45 Min)</span>
-                <select class="prio-select" data-time="Montag 16:30-17:15 (45 Min)">
-                    <option value="Möglich / Alternative">Möglich / Alternative 👍</option>
-                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
+                <select class="prio-select prio" data-time="Mo 16:30-17:15 (45 Min)">
+                    <option value="Möglich / Alternative">Alternative 👍</option>
                     <option value="Wunschzeit">Wunschzeit ⭐</option>
+                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
                 </select>
             </div>
 
             <div class="time-row">
                 <span>17:15 - 18:00 Uhr (45 Min)</span>
-                <select class="prio-select" data-time="Montag 17:15-18:00 (45 Min)">
-                    <option value="Möglich / Alternative">Möglich / Alternative 👍</option>
-                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
+                <select class="prio-select prio" data-time="Mo 17:15-18:00 (45 Min)">
+                    <option value="Möglich / Alternative">Alternative 👍</option>
                     <option value="Wunschzeit">Wunschzeit ⭐</option>
+                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
                 </select>
             </div>
 
             <div class="time-row">
                 <span>18:00 - 19:00 Uhr (60 Min)</span>
-                <select class="prio-select" data-time="Montag 18:00-19:00 (60 Min)">
-                    <option value="Möglich / Alternative">Möglich / Alternative 👍</option>
-                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
+                <select class="prio-select prio" data-time="Mo 18:00-19:00 (60 Min)">
+                    <option value="Möglich / Alternative">Alternative 👍</option>
                     <option value="Wunschzeit">Wunschzeit ⭐</option>
+                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
                 </select>
             </div>
         </div>
@@ -123,21 +128,38 @@
             
             <div class="time-row">
                 <span>16:30 - 17:30 Uhr (60 Min)</span>
-                <select class="prio-select" data-time="Mittwoch 16:30-17:30 (60 Min)">
-                    <option value="Möglich / Alternative">Möglich / Alternative 👍</option>
-                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
+                <select class="prio-select prio" data-time="Mi 16:30-17:30 (60 Min)">
+                    <option value="Möglich / Alternative">Alternative 👍</option>
                     <option value="Wunschzeit">Wunschzeit ⭐</option>
+                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
                 </select>
             </div>
 
             <div class="time-row">
                 <span>17:30 - 18:30 Uhr (60 Min)</span>
-                <select class="prio-select" data-time="Mittwoch 17:30-18:30 (60 Min)">
-                    <option value="Möglich / Alternative">Möglich / Alternative 👍</option>
-                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
+                <select class="prio-select prio" data-time="Mi 17:30-18:30 (60 Min)">
+                    <option value="Möglich / Alternative">Alternative 👍</option>
                     <option value="Wunschzeit">Wunschzeit ⭐</option>
+                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
                 </select>
             </div>
+        </div>
+
+        <!-- Datenschutz & Einverständnis Box -->
+        <div class="privacy-box" style="text-align: left; font-size: 0.85rem; background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #ddd;">
+            <h4>Einverständniserklärungen (freiwillig)</h4>
+            <p>Bitte kreuzen Sie die entsprechenden Kästchen an, wenn Sie zustimmen. Eine Anmeldung zum Training ist auch ohne diese Zustimmungen möglich.</p>
+            <label class="check-item">
+                <input type="checkbox" id="consent_rank"> <span>Veröffentlichung von Erfolgen & Ranglisten auf der Webseite.</span>
+            </label>
+            <p style="margin: 5px 0 15px 24px; color: #666;">Ich willige ein, dass mein Name (bzw. der Name meines Kindes) sowie das Geburtsdatum für vereinsinterne Ranglisten, Bestenlisten und Rekorde auf der Vereinswebseite veröffentlicht werden dürfen.</p>
+            <label class="check-item">
+                <input type="checkbox" id="consent_video"> <span>Videoaufnahmen zur Technikkorrektur (interne Analyse).</span>
+            </label>
+            <p style="margin: 5px 0 15px 24px; color: #666;">Ich bin damit einverstanden, dass während des Trainings Videoaufnahmen zum Zweck der Technik- und Bewegungsanalyse erstellt werden. Diese Aufnahmen dienen ausschließlich der sportlichen Verbesserung, werden nicht veröffentlicht und nach der Analyse zeitnah gelöscht.</p>
+            <p style="margin-top: 10px; color: #666; font-size: 0.8rem;">
+                <em><strong>Wichtiger Hinweis zum Widerruf:</strong></em> Diese Einwilligungen sind freiwillig und können jederzeit mit Wirkung für die Zukunft widerrufen werden (z. B. per E-Mail an: [tennissg@web.de]). Durch den Widerruf entstehen keine Nachteile für die Teilnahme am Training. Bei Minderjährigen unter 16 Jahren muss die Einwilligung durch einen Erziehungsberechtigten erfolgen.
+            </p>
         </div>
 
         <button type="submit" class="whatsapp-btn">
@@ -150,14 +172,9 @@
 function sendWhatsApp(event) {
     event.preventDefault();
     const ranglisteErlaubt = document.getElementById('consent_rank').checked ? "Ja" : "Nein";
-    
-
-    let txt = `Hallo Sönke,\n Anmeldung Hans-Grade-Schule:\n\n*Kind:* ${document.getElementById('childName').value}\n*Jahrgang:* ${document.getElementById('birthYear').value}\n*Häufigkeit:* ${document.getElementById('status').value}\n\n*Einwilligungen:* \n• Ranglisten-Veröffentlichung: ${ranglisteErlaubt}\n\n*Zeiten:*`;
-    const telefonnummer = "4915775211552"; 
-    // Öffnet WhatsApp
+    const videoErlaubt = document.getElementById('consent_video').checked ? "Ja" : "Nein";
+    let txt = `Hallo Sönke,\n Anmeldung Anna-Seghers-Schule:\n\n*Kind:* ${document.getElementById('childName').value}\n*Jahrgang:* ${document.getElementById('birthYear').value}\n*Häufigkeit:* ${document.getElementById('frequencySelect').value}\n\n*Einwilligungen:* \n• Ranglisten-Veröffentlichung: ${ranglisteErlaubt}\n• Video-Technikanalyse: ${videoErlaubt}\n\n*Zeiten:*`;
+    document.querySelectorAll('.prio').forEach(s => { if(s.value !== "Geht gar nicht") txt += `\n• ${s.getAttribute('data-time')}: ${s.value}`; });
+    const telefonnummer = "4915775211552";
     window.location.href = `https://wa.me/${telefonnummer}?text=` + encodeURIComponent(txt);
-}
-</script>
-
-</body>
-</html>
+    }
