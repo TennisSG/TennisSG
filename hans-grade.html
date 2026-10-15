@@ -84,7 +84,7 @@ function sendWhatsApp(e) {
     let txt = `Hallo TennisSG, Anmeldung Hans-Grade-Schule:\n\n*Kind:* ${document.getElementById('childName').value}\n*Status:* ${document.getElementById('status').value}\n*Wunschdauer:* ${document.getElementById('duration').value}\n\n*Zeiten:*`;
     document.querySelectorAll('.prio').forEach(s => { if(s.value !== "Geht gar nicht") txt += `\n• ${s.getAttribute('data-time')}: ${s.value}`; });
     const telefonnummer = "4915775211552"; 
-    window.location.href = `https://wa.me{telefonnummer}?text=` + encodeURIComponent(txt);
+    window.location.href = `https://wa.me${telefonnummer}?text=` + encodeURIComponent(txt);
 }
 </script>
 </body>
