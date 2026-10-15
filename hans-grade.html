@@ -9,16 +9,19 @@
         header { background: #333; padding: 10px; margin: -20px -20px 20px -20px; }
         nav a { color: #fff; text-decoration: none; margin-right: 15px; font-weight: bold; }
         .container { max-width: 700px; margin: auto; }
+        .adress-subtitle { font-size: 1.2rem; color: #555; margin-top: -10px; margin-bottom: 20px; font-style: italic; }
         .box { padding: 12px; margin-bottom: 15px; border-radius: 4px; border-left: 5px solid; }
         .info { background: #f0f7ff; border-color: #0056b3; }
         .alert { background: #fff3cd; border-color: #ffc107; }
         .guide { background: #e8f5e9; border-color: #2e7d32; }
         .form-group { margin-bottom: 15px; }
+        .checkbox-group { background: #fffde7; border: 1px solid #ffd54f; padding: 12px; margin-bottom: 15px; border-radius: 6px; display: flex; align-items: center; gap: 10px; font-weight: bold; cursor: pointer; }
+        .checkbox-group input { width: 20px; height: 20px; cursor: pointer; }
         .day-section { background: #f9f9f9; border: 1px solid #ddd; padding: 12px; margin-bottom: 15px; border-radius: 6px; }
         .day-title { font-weight: bold; border-bottom: 2px solid #ddd; padding-bottom: 3px; margin-bottom: 8px; }
         .time-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed #eee; }
         label { display: block; font-weight: bold; margin-bottom: 5px; }
-        select, input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        select, input[type="text"], input[type="number"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
         select.prio-select { width: 200px; }
         .btn { display: block; width: 100%; background: #25D366; color: white; padding: 12px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; border: none; cursor: pointer; text-align: center; }
         .btn:hover { background: #20ba5a; }
@@ -28,45 +31,53 @@
 <header><nav><a href="index.html">Startseite</a><a href="winter.html">Wintersaison 2026/27</a></nav></header>
 <div class="container">
     <h1>Hans-Grade-Schule (Johannisthal)</h1>
+    <div class="adress-subtitle">Heuberger Weg - Ecke Hoevelstraße</div>
     <p><strong>Zielgruppe:</strong> Fortgeschrittene & Erfahrene</p>
     <div class="box info">
         <strong>Wintersaison:</strong> 17 Wochen (02.11.2026 - 23.03.2027)<br>
-        <strong>Preise:</strong> 45 Min = 127,50 € (Saisonbeispiel). Finale Infos zu Preis/Dauer folgen in der WhatsApp-Gruppe.
+        <strong>Preise:</strong> 45 Min = 127,50 € (Beispiel). <br>Finale Infos zu Preis/Dauer folgen in der WhatsApp-Gruppe.
     </div>
     <div class="box alert">In den Berliner Schulferien findet kein Training statt.</div>
     <div class="box guide">
-        <strong>💡 Ausfüllhilfe:</strong> Bitte gib so viele Zeiten wie möglich stündlich an! 
-        Wunschzeit = Lieblingstermin | Alternative = Hier geht es auch | Geht gar nicht = Keine Zeit.
+        <strong>💡 Ausfüllhilfe:</strong> Bitte gib so viele Zeiten wie möglich stündlich an! <br>
+        Wunschzeit = Lieblingstermin <br> Alternative = Hier geht es auch <br> Geht gar nicht = Keine Zeit.
     </div>
     <h2>Anmeldung via WhatsApp</h2>
     <form onsubmit="sendWhatsApp(event)">
         <div class="form-group">
-            <label for="childName">Name und Alter des Kindes:</label>
-            <input type="text" id="childName" placeholder="z.B. Max Mustermann, 11 Jahre" required>
+            <label for="childName">Name des Kindes:</label>
+            <input type="text" id="childName" placeholder="z.B. Max Mustermann" required>
         </div>
         <div class="form-group">
-            <label for="status">Status & Häufigkeit:</label>
+            <label for="birthYear">Jahrgang:</label>
+            <input type="number" id="birthYear" placeholder="z.B. 2015" min="2000" max="2026" required>
+        </div>
+        <div class="form-group">
+            <label for="status">Häufigkeit:</label>
             <select id="status" required>
-                <option value="Mannschaftsspieler (mind. 2x/Woche)">Mannschaftsspieler (mind. 2x pro Woche)</option>
-                <option value="Normales Training - 1x pro Woche">Normales Training - 1x pro Woche</option>
-                <option value="Normales Training - 2x pro Woche">Normales Training - 2x pro Woche</option>
+                <option value="1x pro Woche">1x pro Woche</option>
+                <option value="2x pro Woche">2x pro Woche</option>
             </select>
         </div>
-        <div class="form-group">
-            <label for="duration">Wunsch-Dauer (Samstag):</label>
-            <select id="duration" required>
-                <option value="45 Minuten">45 Minuten</option>
-                <option value="60 Minuten">60 Minuten</option>
-                <option value="90 Minuten (wenn möglich)">90 Minuten (wenn möglich)</option>
-            </select>
-        </div>
+
+        <!-- ATHLETIK TRAINING (Direkt über Donnerstag) -->
+        <label class="checkbox-group">
+            <input type="checkbox" id="athletik">
+            <span>Zusatzoption: Athletiktraining montags 19:30 - 20:15 Uhr (85 €)</span>
+        </label>
+
         <div class="day-section">
-            <div class="day-title">Donnerstag (Nur für Mannschaftsspieler)</div>
+            <div class="day-title">Donnerstag (Nur für Mannschaftsspieler (wenn 2x pro Woche trainiert wird))</div>
             <div class="time-row"><span>16:00 - 17:00 Uhr</span><select class="prio" data-time="Do 16:00-17:00"><option value="Geht gar nicht">Geht gar nicht ❌</option><option value="Wunschzeit">Wunschzeit ⭐</option><option value="Möglich">Alternative 👍</option></select></div>
             <div class="time-row"><span>17:00 - 18:00 Uhr</span><select class="prio" data-time="Do 17:00-18:00"><option value="Geht gar nicht">Geht gar nicht ❌</option><option value="Wunschzeit">Wunschzeit ⭐</option><option value="Möglich">Alternative 👍</option></select></div>
         </div>
         <div class="day-section">
-            <div class="day-title">Samstag (Stündliche Auswahl von 08:00 bis 15:00 Uhr)</div>
+            <div class="day-title">Samstag </div>
+            <label for="duration">Wunsch-Dauer</label>
+            <select id="duration" required>
+                <option value="45 Minuten">45 Minuten</option>
+                <option value="90 Minuten (wenn möglich)">90 Minuten (wenn möglich)</option>
+            </select><br><br><strong>Zeit</strong>
             <div class="time-row"><span>08:00 - 09:00 Uhr</span><select class="prio" data-time="Sa 08:00-09:00"><option value="Geht gar nicht">Geht gar nicht ❌</option><option value="Wunschzeit">Wunschzeit ⭐</option><option value="Möglich">Alternative 👍</option></select></div>
             <div class="time-row"><span>09:00 - 10:00 Uhr</span><select class="prio" data-time="Sa 09:00-10:00"><option value="Geht gar nicht">Geht gar nicht ❌</option><option value="Wunschzeit">Wunschzeit ⭐</option><option value="Möglich">Alternative 👍</option></select></div>
             <div class="time-row"><span>10:00 - 11:00 Uhr</span><select class="prio" data-time="Sa 10:00-11:00"><option value="Geht gar nicht">Geht gar nicht ❌</option><option value="Wunschzeit">Wunschzeit ⭐</option><option value="Möglich">Alternative 👍</option></select></div>
@@ -75,13 +86,33 @@
             <div class="time-row"><span>13:00 - 14:00 Uhr</span><select class="prio" data-time="Sa 13:00-14:00"><option value="Geht gar nicht">Geht gar nicht ❌</option><option value="Wunschzeit">Wunschzeit ⭐</option><option value="Möglich">Alternative 👍</option></select></div>
             <div class="time-row"><span>14:00 - 15:00 Uhr</span><select class="prio" data-time="Sa 14:00-15:00"><option value="Geht gar nicht">Geht gar nicht ❌</option><option value="Wunschzeit">Wunschzeit ⭐</option><option value="Möglich">Alternative 👍</option></select></div>
         </div>
+        </div>
+        <!-- Datenschutz & Einverständnis -->
+        <div class="privacy-box" style="text-align: left; font-size: 0.85rem; background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h4>Einverständniserklärungen (freiwillig)</h4>
+            <p>Bitte kreuzen Sie die entsprechenden Kästchen an, wenn Sie zustimmen. Eine Anmeldung zum Training ist auch ohne diese Zustimmungen möglich.</p>
+            <label class="check-item">
+                <input type="checkbox" id="consent_rank"> <strong>Veröffentlichung von Erfolgen & Ranglisten auf der Webseite.</strong>
+            </label>
+            <p>Ich willige ein, dass mein Name (bzw. der Name meines Kindes) sowie das Geburtsdatum für vereinsinterne Ranglisten, Bestenlisten und Rekorde auf der Vereinswebseite veröffentlicht werden dürfen.</p>
+            <label class="check-item">
+                <input type="checkbox" id="consent_video"> <strong>Videoaufnahmen zur Technikkorrektur (interne Analyse).</strong>
+            </label>
+            <p>Ich bin damit einverstanden, dass während des Trainings Videoaufnahmen zum Zweck der Technik- und Bewegungsanalyse erstellt werden. Diese Aufnahmen dienen ausschließlich der sportlichen Verbesserung, werden nicht veröffentlicht und nach der Analyse zeitnah gelöscht.</p>
+            <p style="margin-top: 10px; color: #666;">
+                <em><strong>Wichtiger Hinweis zum Widerruf:</strong></em> Diese Einwilligungen sind freiwillig und können jederzeit mit Wirkung für die Zukunft widerrufen werden (z. B. per E-Mail an: [tennissg@web.de]). Durch den Widerruf entstehen keine Nachteile für die Teilnahme am Training. Bei Minderjährigen unter 16 Jahren muss die Einwilligung durch einen Erziehungsberechtigten erfolgen.
+            </p>
+        </div>
         <button type="submit" class="btn">Anmeldedaten via WhatsApp senden</button>
     </form>
-</div>
+
 <script>
+
+
 function sendWhatsApp(e) {
     e.preventDefault();
-    let txt = `Hallo TennisSG, Anmeldung Hans-Grade-Schule:\n\n*Kind:* ${document.getElementById('childName').value}\n*Status:* ${document.getElementById('status').value}\n*Wunschdauer:* ${document.getElementById('duration').value}\n\n*Zeiten:*`;
+    const athletikGewaehlt = document.getElementById('athletik').checked ? "Ja (Montag 19:30 Uhr)" : "Nein";
+    let txt = `Hallo Sönke,\n Anmeldung Hans-Grade-Schule:\n\n*Kind:* ${document.getElementById('childName').value}\n*Jahrgang:* ${document.getElementById('birthYear').value}\n*Häufigkeit:* ${document.getElementById('status').value}\n*Athletiktraining:* ${athletikGewaehlt}\n*Wunschdauer:* ${document.getElementById('duration').value}\n\n*Zeiten:*`;
     document.querySelectorAll('.prio').forEach(s => { if(s.value !== "Geht gar nicht") txt += `\n• ${s.getAttribute('data-time')}: ${s.value}`; });
     const telefonnummer = "4915775211552"; 
     window.location.href = `https://wa.me/${telefonnummer}?text=` + encodeURIComponent(txt);
