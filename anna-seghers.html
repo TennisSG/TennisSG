@@ -180,9 +180,8 @@ function sendWhatsApp(event) {
 
     // Öffnet WhatsApp
     <!-- WhatsApp Button -->
-                    <a href="https://wa.me/4915775211552" class="button whatsapp-btn" target="_blank">
-                        💬 Via WhatsApp
-                    </a>
+                    <a href="https://wa.me/4915775211552" class="button whatsapp-btn" target="_blank"> 💬 Via WhatsApp </a>
+                    window.location.href = `https://wa.me/${telefonnummer}?text=` + encodeURIComponent(txt);
 }
 </script>
 
