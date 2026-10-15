@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna-Seghers-Schule - TennisSG</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; }
+        header { background: #333; color: #fff; padding: 1rem; }
+        nav a { color: #fff; text-decoration: none; margin-right: 15px; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        .container { padding: 20px; max-width: 800px; margin: auto; }
+        .info-box { background: #f0f7ff; border-left: 5px solid #0056b3; padding: 15px; margin-bottom: 25px; border-radius: 4px; }
+        .alert-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin-bottom: 25px; border-radius: 4px; }
+        .guide-box { background: #e8f5e9; border-left: 5px solid #2e7d32; padding: 15px; margin-bottom: 25px; border-radius: 4px; }
+        .form-group { margin-bottom: 20px; }
+        .day-section { background: #fdfdfd; border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 6px; }
+        .day-title { font-size: 1.2rem; color: #333; margin-top: 0; border-bottom: 2px solid #ddd; padding-bottom: 5px; }
+        .time-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed #eee; flex-wrap: wrap; gap: 10px; }
+        .time-row:last-child { border-bottom: none; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; }
+        select, input[type="text"] { padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; box-sizing: border-box; }
+        input[type="text"] { width: 100%; }
+        select.full-width { width: 100%; }
+        select.prio-select { width: 220px; }
+        .whatsapp-btn { display: inline-flex; align-items: center; justify-content: center; background: #25D366; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; border: none; cursor: pointer; width: 100%; margin-top: 10px; }
+        .whatsapp-btn:hover { background: #20ba5a; }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Startseite</a>
+        <a href="winter.html">Wintersaison 2026/27</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Hallen-Training: Anna-Seghers-Schule (Adlershof)</h1>
+    <p><strong>Zielgruppe:</strong> Anfänger & Minis</p>
+
+    <div class="info-box">
+        <h3>Eckdaten zur Wintersaison</h3>
+        <ul>
+            <li><strong>Dauer:</strong> 17 Trainingswochen vom 02.11.2026 bis 23.03.2027</li>
+            <li><strong>Preise (Gesamte Saison):</strong> 
+                <ul>
+                    <li>45 Minuten Trainingszeit: 102,00 €</li>
+                    <li>60 Minuten Trainingszeit: 127,50 €</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="alert-box">
+        <strong>Wichtiger Hinweis zu den Trainingszeiten:</strong><br>
+        In den Berliner Schulferien findet kein Training statt. Am Montag, den <strong>08.03.2027 (Internationaler Frauentag)</strong>, entfällt das Training ebenfalls.
+    </div>
+
+    <div class="guide-box">
+        <h3>💡 Ausfüllhilfe für Eltern</h3>
+        <p>Um die Gruppen optimal und fair nach Spielstärke und Alter einteilen zu können, benötigen wir deine Flexibilität. <strong>Bitte gib so viele passende Zeiten wie möglich an!</strong></p>
+        <p>Wähle für jeden angebotenen Zeitraum einfach aus, wie gut er dir passt:</p>
+        <ul>
+            <li><strong>Wunschzeit:</strong> Dein absoluter Lieblingstermin.</li>
+            <li><strong>Möglich / Alternative:</strong> Hier habt ihr Zeit, falls die Wunschgruppe voll ist.</li>
+            <li><strong>Geht gar nicht:</strong> An diesem Termin ist definitiv keine Teilnahme möglich.</li>
+        </ul>
+    </div>
+
+    <h2>Anmeldung via WhatsApp</h2>
+
+    <form id="registrationForm" onsubmit="sendWhatsApp(event)">
+        <div class="form-group">
+            <label for="childName">Name und Alter des Kindes:</label>
+            <input type="text" id="childName" placeholder="z.B. Max Mustermann, 8 Jahre" required>
+        </div>
+
+        <div class="form-group">
+            <label for="frequencySelect">Gewünschte Trainingshäufigkeit:</label>
+            <select id="frequencySelect" class="full-width" required>
+                <option value="1x pro Woche">1x pro Woche trainieren</option>
+                <option value="2x pro Woche">2x pro Woche trainieren</option>
+            </select>
+        </div>
+
+        <!-- MONTAG -->
+        <div class="day-section">
+            <div class="day-title">Montag (17 Wochen — 45 Min: 102,00 € / 60 Min: 127,50 €)</div>
+            
+            <div class="time-row">
+                <span>16:30 - 17:15 Uhr (45 Min)</span>
+                <select class="prio-select" data-time="Montag 16:30-17:15 (45 Min)">
+                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
+                    <option value="Wunschzeit">Wunschzeit ⭐</option>
+                    <option value="Möglich / Alternative">Möglich / Alternative 👍</option>
+                </select>
+            </div>
+
+            <div class="time-row">
+                <span>17:15 - 18:00 Uhr (45 Min)</span>
+                <select class="prio-select" data-time="Montag 17:15-18:00 (45 Min)">
+                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
+                    <option value="Wunschzeit">Wunschzeit ⭐</option>
+                    <option value="Möglich / Alternative">Möglich / Alternative 👍</option>
+                </select>
+            </div>
+
+            <div class="time-row">
+                <span>18:00 - 19:00 Uhr (60 Min)</span>
+                <select class="prio-select" data-time="Montag 18:00-19:00 (60 Min)">
+                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
+                    <option value="Wunschzeit">Wunschzeit ⭐</option>
+                    <option value="Möglich / Alternative">Möglich / Alternative 👍</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- MITTWOCH -->
+        <div class="day-section">
+            <div class="day-title">Mittwoch (17 Wochen — 60 Min: 127,50 €)</div>
+            
+            <div class="time-row">
+                <span>16:30 - 17:30 Uhr (60 Min)</span>
+                <select class="prio-select" data-time="Mittwoch 16:30-17:30 (60 Min)">
+                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
+                    <option value="Wunschzeit">Wunschzeit ⭐</option>
+                    <option value="Möglich / Alternative">Möglich / Alternative 👍</option>
+                </select>
+            </div>
+
+            <div class="time-row">
+                <span>17:30 - 18:30 Uhr (60 Min)</span>
+                <select class="prio-select" data-time="Mittwoch 17:30-18:30 (60 Min)">
+                    <option value="Geht gar nicht">Geht gar nicht ❌</option>
+                    <option value="Wunschzeit">Wunschzeit ⭐</option>
+                    <option value="Möglich / Alternative">Möglich / Alternative 👍</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="whatsapp-btn">
+            Anmeldedaten via WhatsApp senden
+        </button>
+    </form>
+</div>
+
+<script>
+function sendWhatsApp(event) {
+    event.preventDefault();
+    
+    const phoneNumber = "4915775211552";
+    const childName = document.getElementById('childName').value;
+    const frequency = document.getElementById('frequencySelect').value;
+    
+    // Alle ausgewählten Prioritäten sammeln
+    const selects = document.querySelectorAll('.prio-select');
+    let zeitenText = "";
+
+    selects.forEach(select => {
+        const status = select.value;
+        const timeLabel = select.getAttribute('data-time');
+        
+        if (status !== "Geht gar nicht") {
+            zeitenText += `%0A• ${encodeURIComponent(timeLabel)}: *${encodeURIComponent(status)}*`;
+        }
+    });
+
+    if (!zeitenText) {
+        alert("Bitte wähle mindestens eine verfügbare Wunsch- oder Alternativzeit aus!");
+        return;
+    }
+
+    // Nachricht für WhatsApp generieren
+    let message = `Hallo TennisSG, ich möchte mein Kind für das Wintertraining in der Anna-Seghers-Schule anmelden.%0A%0A` +
+                  `*Kind:* ${encodeURIComponent(childName)}%0A` +
+                  `*Intensität:* ${encodeURIComponent(frequency)}%0A%0A` +
+                  `*Verfügbarkeiten:*${zeitenText}`;
+
+    // Öffnet WhatsApp
+    window.open(`https://wa.me{phoneNumber}?text=${message}`, '_blank');
+}
+</script>
+
+</body>
+</html>
