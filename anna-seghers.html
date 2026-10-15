@@ -149,7 +149,6 @@
 <script>
 function sendWhatsApp(event) {
     event.preventDefault();
-    
     const phoneNumber = "4915775211552";
     const childName = document.getElementById('childName').value;
     const frequency = document.getElementById('frequencySelect').value;
@@ -161,10 +160,7 @@ function sendWhatsApp(event) {
     selects.forEach(select => {
         const status = select.value;
         const timeLabel = select.getAttribute('data-time');
-        
-        if (status !== "Geht gar nicht") {
-            zeitenText += `%0A• ${encodeURIComponent(timeLabel)}: *${encodeURIComponent(status)}*`;
-        }
+        if (status !== "Geht gar nicht") {zeitenText += `%0A• ${encodeURIComponent(timeLabel)}: *${encodeURIComponent(status)}*`;}
     });
 
     if (!zeitenText) {
@@ -173,15 +169,13 @@ function sendWhatsApp(event) {
     }
 
     // Nachricht für WhatsApp generieren
-    let message = `Hallo TennisSG, ich möchte mein Kind für das Wintertraining in der Anna-Seghers-Schule anmelden.%0A%0A` +
+    let txt = `Hallo Sönke,\n Anmeldung Anna-Seghers-Schul: %0A%0A` +
                   `*Kind:* ${encodeURIComponent(childName)}%0A` +
                   `*Intensität:* ${encodeURIComponent(frequency)}%0A%0A` +
                   `*Verfügbarkeiten:*${zeitenText}`;
-
+    const telefonnummer = "4915775211552"; 
     // Öffnet WhatsApp
-    <!-- WhatsApp Button -->
-                    <a href="https://wa.me/4915775211552" class="button whatsapp-btn" target="_blank"> 💬 Via WhatsApp </a>
-                    window.location.href = `https://wa.me/${telefonnummer}?text=` + encodeURIComponent(txt);
+    window.location.href = `https://wa.me/${telefonnummer}?text=` + encodeURIComponent(txt);
 }
 </script>
 
